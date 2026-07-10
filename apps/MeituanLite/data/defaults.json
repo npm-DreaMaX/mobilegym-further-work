@@ -1,0 +1,291 @@
+{
+  "userProfile": {
+    "name": "小明",
+    "phone": "138****8888",
+    "balance": 128.5
+  },
+  "addresses": [
+    {
+      "id": "addr-1",
+      "tag": "家",
+      "contact": "小明",
+      "phone": "138****8888",
+      "detail": "阳光小区 3 栋 2 单元 501 室"
+    },
+    {
+      "id": "addr-2",
+      "tag": "公司",
+      "contact": "小明",
+      "phone": "138****8888",
+      "detail": "科技大厦 B 座 12 层 1203"
+    }
+  ],
+  "hotKeywords": [
+    "奶茶",
+    "麻辣烫",
+    "汉堡",
+    "炸鸡",
+    "螺蛳粉",
+    "寿司",
+    "烧烤",
+    "盖饭"
+  ],
+  "banners": [
+    {
+      "id": "b1",
+      "emoji": "🧧",
+      "color": "#FF5339",
+      "title": "红包雨来袭",
+      "subtitle": "最高领 88 元"
+    },
+    {
+      "id": "b2",
+      "emoji": "🍔",
+      "color": "#FF8C00",
+      "title": "美食 5 折起",
+      "subtitle": "限时秒杀"
+    },
+    {
+      "id": "b3",
+      "emoji": "🚴",
+      "color": "#3B8BFF",
+      "title": "跑腿代购",
+      "subtitle": "30 分钟达"
+    }
+  ],
+  "shops": [
+    {
+      "id": "shop-1",
+      "name": "老王家常炒饭",
+      "emoji": "🍚",
+      "coverColor": "#FFD161",
+      "rating": 4.6,
+      "monthSales": 2180,
+      "minOrder": 20,
+      "deliveryFee": 3,
+      "deliveryTime": 28,
+      "distance": 1.2,
+      "tags": ["满减", "准时达", "品牌"],
+      "notice": "本店所有菜品现炒现做，保证新鲜。高峰期配送可能略有延迟，感谢理解。",
+      "promotions": [
+        {
+          "type": "满减",
+          "text": "满20减3；满40减8；满60减15",
+          "rules": [
+            { "threshold": 60, "discount": 15 },
+            { "threshold": 40, "discount": 8 },
+            { "threshold": 20, "discount": 3 }
+          ]
+        }
+      ],
+      "categories": [
+        { "id": "c1", "name": "热销" },
+        { "id": "c2", "name": "主食" },
+        { "id": "c3", "name": "小吃" },
+        { "id": "c4", "name": "饮品" }
+      ],
+      "products": [
+        { "id": "p1-1", "categoryId": "c1", "name": "招牌蛋炒饭", "desc": "现炒米饭配鸡蛋葱花", "price": 16, "packingFee": 1, "monthSales": 980, "goodRate": 96, "emoji": "🍚", "hot": true },
+        { "id": "p1-2", "categoryId": "c1", "name": "扬州炒饭", "desc": "虾仁火腿青豆", "price": 22, "packingFee": 1, "monthSales": 760, "goodRate": 95, "emoji": "🍳", "hot": true },
+        { "id": "p1-3", "categoryId": "c2", "name": "西红柿牛腩盖饭", "desc": "慢炖牛腩浓汁", "price": 28, "packingFee": 1, "monthSales": 540, "goodRate": 97, "emoji": "🥘" },
+        { "id": "p1-4", "categoryId": "c2", "name": "咖喱鸡肉饭", "desc": "日式咖喱浓香", "price": 26, "packingFee": 1, "monthSales": 430, "goodRate": 94, "emoji": "🍛" },
+        { "id": "p1-5", "categoryId": "c3", "name": "香煎鸡腿", "desc": "外酥里嫩", "price": 12, "packingFee": 1, "monthSales": 620, "goodRate": 95, "emoji": "🍗" },
+        { "id": "p1-6", "categoryId": "c3", "name": "凉拌黄瓜", "desc": "清爽开胃", "price": 6, "packingFee": 0, "monthSales": 380, "goodRate": 92, "emoji": "🥒" },
+        { "id": "p1-7", "categoryId": "c4", "name": "可乐", "desc": "冰镇可口可乐 330ml", "price": 5, "packingFee": 0, "monthSales": 880, "goodRate": 98, "emoji": "🥤" },
+        { "id": "p1-8", "categoryId": "c4", "name": "酸梅汤", "desc": "现熬酸梅汤", "price": 8, "packingFee": 0, "monthSales": 290, "goodRate": 93, "emoji": "🧃" }
+      ]
+    },
+    {
+      "id": "shop-2",
+      "name": "甜甜奶茶屋",
+      "emoji": "🧋",
+      "coverColor": "#FFB6C1",
+      "rating": 4.8,
+      "monthSales": 3650,
+      "minOrder": 15,
+      "deliveryFee": 2,
+      "deliveryTime": 25,
+      "distance": 0.8,
+      "tags": ["满减", "热销", "放心吃"],
+      "notice": "新鲜水果现做，少糖更健康。可备注甜度冰度。",
+      "promotions": [
+        {
+          "type": "满减",
+          "text": "满15减2；满30减6；满50减12",
+          "rules": [
+            { "threshold": 50, "discount": 12 },
+            { "threshold": 30, "discount": 6 },
+            { "threshold": 15, "discount": 2 }
+          ]
+        }
+      ],
+      "categories": [
+        { "id": "c1", "name": "热销" },
+        { "id": "c2", "name": "奶茶" },
+        { "id": "c3", "name": "果茶" },
+        { "id": "c4", "name": "小食" }
+      ],
+      "products": [
+        { "id": "p2-1", "categoryId": "c1", "name": "招牌珍珠奶茶", "desc": "中杯/七分糖", "price": 12, "packingFee": 0, "monthSales": 1820, "goodRate": 98, "emoji": "🧋", "hot": true },
+        { "id": "p2-2", "categoryId": "c1", "name": "芋泥波波奶茶", "desc": "中杯/五分糖", "price": 15, "packingFee": 0, "monthSales": 1340, "goodRate": 97, "emoji": "🥤", "hot": true },
+        { "id": "p2-3", "categoryId": "c2", "name": "红豆抹茶拿铁", "desc": "中杯/三分糖", "price": 16, "packingFee": 0, "monthSales": 720, "goodRate": 96, "emoji": "🍵" },
+        { "id": "p2-4", "categoryId": "c3", "name": "满杯西柚", "desc": "新鲜西柚果茶", "price": 18, "packingFee": 0, "monthSales": 980, "goodRate": 97, "emoji": "🍊" },
+        { "id": "p2-5", "categoryId": "c3", "name": "多肉葡萄", "desc": "葡萄果肉果茶", "price": 20, "packingFee": 0, "monthSales": 860, "goodRate": 98, "emoji": "🍇" },
+        { "id": "p2-6", "categoryId": "c4", "name": "鸡米花", "desc": "香脆鸡米花", "price": 10, "packingFee": 1, "monthSales": 540, "goodRate": 94, "emoji": "🍗" }
+      ]
+    },
+    {
+      "id": "shop-3",
+      "name": "川香麻辣烫",
+      "emoji": "🍲",
+      "coverColor": "#FF5339",
+      "rating": 4.5,
+      "monthSales": 1980,
+      "minOrder": 25,
+      "deliveryFee": 4,
+      "deliveryTime": 35,
+      "distance": 2.1,
+      "tags": ["满减", "品牌"],
+      "notice": "骨汤熬制，自选食材，辣度可调。",
+      "promotions": [
+        {
+          "type": "满减",
+          "text": "满25减4；满50减12",
+          "rules": [
+            { "threshold": 50, "discount": 12 },
+            { "threshold": 25, "discount": 4 }
+          ]
+        }
+      ],
+      "categories": [
+        { "id": "c1", "name": "热销" },
+        { "id": "c2", "name": "主食" },
+        { "id": "c3", "name": "荤菜" },
+        { "id": "c4", "name": "素菜" }
+      ],
+      "products": [
+        { "id": "p3-1", "categoryId": "c1", "name": "经典骨汤麻辣烫", "desc": "含 6 种食材", "price": 26, "packingFee": 2, "monthSales": 1100, "goodRate": 95, "emoji": "🍲", "hot": true },
+        { "id": "p3-2", "categoryId": "c1", "name": "番茄麻辣烫", "desc": "不辣番茄汤底", "price": 26, "packingFee": 2, "monthSales": 820, "goodRate": 96, "emoji": "🍅", "hot": true },
+        { "id": "p3-3", "categoryId": "c2", "name": "宽粉", "desc": "额外宽粉一份", "price": 6, "packingFee": 0, "monthSales": 460, "goodRate": 94, "emoji": "🍜" },
+        { "id": "p3-4", "categoryId": "c3", "name": "肥牛卷", "desc": "现切肥牛", "price": 12, "packingFee": 1, "monthSales": 730, "goodRate": 96, "emoji": "🥩" },
+        { "id": "p3-5", "categoryId": "c3", "name": "鱼豆腐", "desc": "日式鱼豆腐", "price": 5, "packingFee": 0, "monthSales": 540, "goodRate": 93, "emoji": "🍢" },
+        { "id": "p3-6", "categoryId": "c4", "name": "时令蔬菜", "desc": "当日新鲜蔬菜", "price": 8, "packingFee": 0, "monthSales": 610, "goodRate": 95, "emoji": "🥬" }
+      ]
+    },
+    {
+      "id": "shop-4",
+      "name": "早安好味道",
+      "emoji": "🥟",
+      "coverColor": "#FF9D3D",
+      "rating": 4.7,
+      "monthSales": 1540,
+      "minOrder": 12,
+      "deliveryFee": 2,
+      "deliveryTime": 22,
+      "distance": 0.6,
+      "tags": ["满减", "准时达"],
+      "notice": "早餐 6:30 起供应，豆浆油条现磨现炸。",
+      "promotions": [
+        {
+          "type": "满减",
+          "text": "满12减2；满25减6",
+          "rules": [
+            { "threshold": 25, "discount": 6 },
+            { "threshold": 12, "discount": 2 }
+          ]
+        }
+      ],
+      "categories": [
+        { "id": "c1", "name": "热销" },
+        { "id": "c2", "name": "主食" },
+        { "id": "c3", "name": "小食" },
+        { "id": "c4", "name": "饮品" }
+      ],
+      "products": [
+        { "id": "p4-1", "categoryId": "c1", "name": "豆浆油条套餐", "desc": "现磨豆浆+油条", "price": 9, "packingFee": 1, "monthSales": 1320, "goodRate": 97, "emoji": "🥟", "hot": true },
+        { "id": "p4-2", "categoryId": "c1", "name": "鲜肉小笼包", "desc": "一笼 6 只", "price": 12, "packingFee": 1, "monthSales": 980, "goodRate": 96, "emoji": "🥟", "hot": true },
+        { "id": "p4-3", "categoryId": "c2", "name": "茶叶蛋", "desc": "五香卤制", "price": 3, "packingFee": 0, "monthSales": 760, "goodRate": 95, "emoji": "🥚" },
+        { "id": "p4-4", "categoryId": "c2", "name": "葱花鸡蛋饼", "desc": "现摊蛋饼", "price": 7, "packingFee": 1, "monthSales": 640, "goodRate": 94, "emoji": "🥞" },
+        { "id": "p4-5", "categoryId": "c3", "name": "小米粥", "desc": "养胃小米粥", "price": 5, "packingFee": 0, "monthSales": 520, "goodRate": 95, "emoji": "🥣" },
+        { "id": "p4-6", "categoryId": "c4", "name": "原味豆浆", "desc": "现磨无糖", "price": 4, "packingFee": 0, "monthSales": 880, "goodRate": 97, "emoji": "🥛" }
+      ]
+    },
+    {
+      "id": "shop-5",
+      "name": "鲜果便利店",
+      "emoji": "🍓",
+      "coverColor": "#26C261",
+      "rating": 4.6,
+      "monthSales": 1290,
+      "minOrder": 18,
+      "deliveryFee": 3,
+      "deliveryTime": 30,
+      "distance": 1.5,
+      "tags": ["满减", "放心吃"],
+      "notice": "当日新鲜水果，切块现切现送。",
+      "promotions": [
+        {
+          "type": "满减",
+          "text": "满18减3；满38减8",
+          "rules": [
+            { "threshold": 38, "discount": 8 },
+            { "threshold": 18, "discount": 3 }
+          ]
+        }
+      ],
+      "categories": [
+        { "id": "c1", "name": "热销" },
+        { "id": "c2", "name": "鲜切水果" },
+        { "id": "c3", "name": "果切拼盘" },
+        { "id": "c4", "name": "整果" }
+      ],
+      "products": [
+        { "id": "p5-1", "categoryId": "c1", "name": "草莓果切", "desc": "新鲜草莓切块", "price": 18, "packingFee": 1, "monthSales": 760, "goodRate": 97, "emoji": "🍓", "hot": true },
+        { "id": "p5-2", "categoryId": "c1", "name": "西瓜拼盘", "desc": "无籽西瓜切块", "price": 15, "packingFee": 1, "monthSales": 920, "goodRate": 96, "emoji": "🍉", "hot": true },
+        { "id": "p5-3", "categoryId": "c2", "name": "芒果果切", "desc": "芒果切块", "price": 16, "packingFee": 1, "monthSales": 540, "goodRate": 95, "emoji": "🥭" },
+        { "id": "p5-4", "categoryId": "c2", "name": "葡萄果切", "desc": "阳光玫瑰", "price": 20, "packingFee": 1, "monthSales": 480, "goodRate": 96, "emoji": "🍇" },
+        { "id": "p5-5", "categoryId": "c3", "name": "综合水果拼盘", "desc": "四种水果组合", "price": 25, "packingFee": 1, "monthSales": 610, "goodRate": 97, "emoji": "🥗" },
+        { "id": "p5-6", "categoryId": "c4", "name": "香蕉一串", "desc": "约 6 根", "price": 8, "packingFee": 0, "monthSales": 390, "goodRate": 94, "emoji": "🍌" }
+      ]
+    },
+    {
+      "id": "shop-6",
+      "name": "城市超市便利",
+      "emoji": "🛒",
+      "coverColor": "#3B8BFF",
+      "rating": 4.4,
+      "monthSales": 2680,
+      "minOrder": 15,
+      "deliveryFee": 3,
+      "deliveryTime": 32,
+      "distance": 1.8,
+      "tags": ["满减", "准时达"],
+      "notice": "日用品零食饮料一站购齐，30 分钟送达。",
+      "promotions": [
+        {
+          "type": "满减",
+          "text": "满15减2；满40减10",
+          "rules": [
+            { "threshold": 40, "discount": 10 },
+            { "threshold": 15, "discount": 2 }
+          ]
+        }
+      ],
+      "categories": [
+        { "id": "c1", "name": "热销" },
+        { "id": "c2", "name": "零食" },
+        { "id": "c3", "name": "饮料" },
+        { "id": "c4", "name": "日用" }
+      ],
+      "products": [
+        { "id": "p6-1", "categoryId": "c1", "name": "薯片大包装", "desc": "原味薯片 100g", "price": 9, "packingFee": 0, "monthSales": 1320, "goodRate": 95, "emoji": "🥔", "hot": true },
+        { "id": "p6-2", "categoryId": "c1", "name": "瓶装可乐", "desc": "可口可乐 500ml", "price": 5, "packingFee": 0, "monthSales": 1860, "goodRate": 98, "emoji": "🥤", "hot": true },
+        { "id": "p6-3", "categoryId": "c2", "name": "巧克力礼盒", "desc": "夹心巧克力", "price": 28, "packingFee": 1, "monthSales": 460, "goodRate": 96, "emoji": "🍫" },
+        { "id": "p6-4", "categoryId": "c2", "name": "坚果混合装", "desc": "每日坚果", "price": 19, "packingFee": 0, "monthSales": 540, "goodRate": 95, "emoji": "🥜" },
+        { "id": "p6-5", "categoryId": "c3", "name": "矿泉水 6 瓶", "desc": "550ml×6", "price": 12, "packingFee": 0, "monthSales": 980, "goodRate": 97, "emoji": "💧" },
+        { "id": "p6-6", "categoryId": "c4", "name": "抽纸 3 包", "desc": "三层抽纸", "price": 15, "packingFee": 0, "monthSales": 720, "goodRate": 94, "emoji": "🧻" }
+      ]
+    }
+  ],
+  "orders": []
+}
