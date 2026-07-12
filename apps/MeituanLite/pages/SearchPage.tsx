@@ -1,7 +1,8 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { IcSearch, IcClose } from '../res/icons';
 import { MEITUAN_LITE_CONFIG } from '../data';
+import { useMeituanLiteStore } from '../state';
 import { useAppStrings } from '@/os/useAppStrings';
 import { strings } from '../res/strings';
 import { stringsEn } from '../res/strings.en';
@@ -15,6 +16,9 @@ const SearchPage: React.FC = () => {
   const initialQ = searchParams.get('q') ?? '';
   const [q, setQ] = useState(initialQ);
 
+  const submitSearch = useMeituanLiteStore((st) => st.submitSearch);
+  const clearSearch = useMeituanLiteStore((st) => st.clearSearch);
+
   const filtered = useMemo(() => {
     const query = q.trim().toLowerCase();
     if (!query) return MEITUAN_LITE_CONFIG.shops;
@@ -25,6 +29,16 @@ const SearchPage: React.FC = () => {
       return false;
     });
   }, [q]);
+
+  // 记录搜索态（易失，仅 benchmark 判定"是否真的执行了搜索"用）
+  useEffect(() => {
+    const query = q.trim();
+    if (!query) {
+      clearSearch();
+      return;
+    }
+    submitSearch(query, filtered.map((shop) => shop.id));
+  }, [q, filtered, submitSearch, clearSearch]);
 
   return (
     <div className="h-full flex flex-col bg-gray-50" data-status-bar-foreground="dark">

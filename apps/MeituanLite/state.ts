@@ -25,6 +25,10 @@ export interface MeituanLiteState {
   paymentMethod: PaymentMethod;
   userProfile: UserProfile;
   settings: MeituanLiteSettings;
+  _temp: {
+    // 易失：仅 benchmark 判定"是否真的执行了搜索"用（不入 localStorage）
+    searchCurrent: { q: string; resultShopIds: string[]; searched: boolean } | null;
+  };
 }
 
 export interface MeituanLiteActions {
@@ -38,6 +42,8 @@ export interface MeituanLiteActions {
   removeOrder: (orderId: string) => void;
   setUtensils: (n: number) => void;
   setRemark: (r: string) => void;
+  submitSearch: (q: string, resultShopIds: string[]) => void;
+  clearSearch: () => void;
 }
 
 const initialState: MeituanLiteState = {
@@ -48,6 +54,7 @@ const initialState: MeituanLiteState = {
   paymentMethod: 'balance',
   userProfile: { ...MEITUAN_LITE_CONFIG.userProfile },
   settings: { utensils: 0, defaultRemark: '' },
+  _temp: { searchCurrent: null },
 };
 
 export const useMeituanLiteStore = createAppStoreWithActions<MeituanLiteState, MeituanLiteActions>(
@@ -138,6 +145,13 @@ export const useMeituanLiteStore = createAppStoreWithActions<MeituanLiteState, M
     setUtensils: (n) => set((s) => ({ settings: { ...s.settings, utensils: n } })),
 
     setRemark: (r) => set((s) => ({ settings: { ...s.settings, defaultRemark: r } })),
+
+    submitSearch: (q, resultShopIds) =>
+      set((s) => ({
+        _temp: { ...s._temp, searchCurrent: { q, resultShopIds, searched: true } },
+      })),
+    clearSearch: () =>
+      set((s) => ({ _temp: { ...s._temp, searchCurrent: null } })),
   }),
 );
 

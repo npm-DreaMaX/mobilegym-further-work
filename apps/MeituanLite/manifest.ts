@@ -4,7 +4,7 @@ import type { AppManifest } from '@/os/types/manifest';
 export const manifest: AppManifest = {
   id: 'meituan-lite',
   packageName: 'com.meituan.lite.sim',
-  displayName: '美团Lite',
+  displayName: '美团',
   displayNameEn: 'Meituan Lite',
   aliases: ['美团', '美团外卖', '外卖'],
   version: '1.0.0',
