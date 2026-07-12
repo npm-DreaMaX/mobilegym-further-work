@@ -1,0 +1,269 @@
+{
+  "user": {
+    "id": "user-001",
+    "nickname": "菜鸟用户小王",
+    "name": "王小明",
+    "avatar": "",
+    "phone": "138****8888"
+  },
+  "packages": [
+    {
+      "id": "pkg-001",
+      "trackingNo": "SF1234567890123",
+      "carrierId": "sf",
+      "carrierName": "顺丰速运",
+      "status": "in_transit",
+      "statusLabel": "运输中",
+      "recipient": { "name": "王芳", "phone": "139****0001", "address": "北京市朝阳区建国路88号" },
+      "sender": { "name": "李明", "phone": "137****0002", "address": "上海市浦东新区张江路100号" },
+      "fromCity": "上海",
+      "toCity": "北京",
+      "eta": "2026-07-14",
+      "itemCategory": "日用品",
+      "weight": 1.2,
+      "events": [
+        { "time": 1752576000000, "location": "上海浦东转运中心", "description": "快件已发往北京分拨中心", "status": "in_transit" },
+        { "time": 1752489600000, "location": "上海浦东转运中心", "description": "快件已到达转运中心", "status": "in_transit" },
+        { "time": 1752403200000, "location": "上海·张江揽收点", "description": "顺丰速运已揽收", "status": "pending_ship" }
+      ],
+      "station": null,
+      "pickupCode": null
+    },
+    {
+      "id": "pkg-002",
+      "trackingNo": "ZT9876543210987",
+      "carrierId": "zt",
+      "carrierName": "中通快递",
+      "status": "arrived_station",
+      "statusLabel": "待取件",
+      "recipient": { "name": "李强", "phone": "139****0010", "address": "深圳市南山区阳光小区3栋1号" },
+      "sender": { "name": "陈红", "phone": "137****0011", "address": "广州市天河区珠江新城20号" },
+      "fromCity": "广州",
+      "toCity": "深圳",
+      "eta": "2026-07-12",
+      "itemCategory": "服饰鞋包",
+      "weight": 0.8,
+      "events": [
+        { "time": 1752576000000, "location": "深圳·阳光小区菜鸟驿站", "description": "包裹已到达驿站，取件码 8-2-4567", "status": "arrived_station" },
+        { "time": 1752403200000, "location": "深圳南山转运中心", "description": "快件已发往阳光小区驿站", "status": "in_transit" },
+        { "time": 1752316800000, "location": "广州天河转运中心", "description": "快件已发出", "status": "in_transit" },
+        { "time": 1752230400000, "location": "广州·天河揽收点", "description": "中通快递已揽收", "status": "pending_ship" }
+      ],
+      "station": {
+        "name": "菜鸟驿站·阳光小区店",
+        "address": "深圳市南山区阳光小区3栋1号",
+        "pickupCode": "8-2-4567",
+        "businessHours": "09:00-21:00"
+      },
+      "pickupCode": "8-2-4567"
+    },
+    {
+      "id": "pkg-003",
+      "trackingNo": "YT5566778899001",
+      "carrierId": "yt",
+      "carrierName": "圆通速递",
+      "status": "in_transit",
+      "statusLabel": "运输中",
+      "recipient": { "name": "张伟", "phone": "139****0020", "address": "重庆市渝中区解放碑步行街50号" },
+      "sender": { "name": "刘丽", "phone": "137****0021", "address": "成都市锦江区春熙路30号" },
+      "fromCity": "成都",
+      "toCity": "重庆",
+      "eta": "2026-07-15",
+      "itemCategory": "数码产品",
+      "weight": 2.5,
+      "events": [
+        { "time": 1752576000000, "location": "成都锦江转运中心", "description": "快件已发往重庆", "status": "in_transit" },
+        { "time": 1752489600000, "location": "成都锦江转运中心", "description": "快件已到达转运中心", "status": "in_transit" },
+        { "time": 1752403200000, "location": "成都·锦江揽收点", "description": "圆通速递已揽收", "status": "pending_ship" }
+      ],
+      "station": null,
+      "pickupCode": null
+    },
+    {
+      "id": "pkg-004",
+      "trackingNo": "JD1122334455667",
+      "carrierId": "jd",
+      "carrierName": "京东物流",
+      "status": "picked_up",
+      "statusLabel": "已取件",
+      "recipient": { "name": "陈静", "phone": "139****0030", "address": "上海市浦东新区世纪大道100号" },
+      "sender": { "name": "赵磊", "phone": "137****0031", "address": "北京市海淀区中关村大街10号" },
+      "fromCity": "北京",
+      "toCity": "上海",
+      "eta": "2026-07-08",
+      "itemCategory": "书籍",
+      "weight": 3.0,
+      "events": [
+        { "time": 1751808000000, "location": "上海·世纪大道菜鸟驿站", "description": "用户已取件", "status": "picked_up" },
+        { "time": 1751721600000, "location": "上海·世纪大道菜鸟驿站", "description": "包裹已到达驿站，取件码 5-1-2301", "status": "arrived_station" },
+        { "time": 1751635200000, "location": "上海浦东转运中心", "description": "快件已发往驿站", "status": "in_transit" },
+        { "time": 1751548800000, "location": "北京·海淀揽收点", "description": "京东物流已揽收", "status": "pending_ship" }
+      ],
+      "station": null,
+      "pickupCode": null
+    },
+    {
+      "id": "pkg-005",
+      "trackingNo": "STO7788990011223",
+      "carrierId": "sto",
+      "carrierName": "申通快递",
+      "status": "delivered",
+      "statusLabel": "已签收",
+      "recipient": { "name": "刘洋", "phone": "139****0040", "address": "长沙市岳麓区麓山南路20号" },
+      "sender": { "name": "孙梅", "phone": "137****0041", "address": "武汉市洪山区珞瑜路40号" },
+      "fromCity": "武汉",
+      "toCity": "长沙",
+      "eta": "2026-07-06",
+      "itemCategory": "食品",
+      "weight": 1.0,
+      "events": [
+        { "time": 1751376000000, "location": "长沙·岳麓菜鸟驿站", "description": "收件人已签收", "status": "delivered" },
+        { "time": 1751289600000, "location": "长沙·岳麓菜鸟驿站", "description": "包裹已到达驿站", "status": "arrived_station" },
+        { "time": 1751203200000, "location": "长沙岳麓转运中心", "description": "快件已发往驿站", "status": "in_transit" },
+        { "time": 1751116800000, "location": "武汉·洪山揽收点", "description": "申通快递已揽收", "status": "pending_ship" }
+      ],
+      "station": null,
+      "pickupCode": null
+    }
+  ],
+  "sendRecords": [
+    {
+      "id": "send-001",
+      "sender": { "name": "王小明", "phone": "138****8888", "address": "上海市浦东新区张江路100号" },
+      "receiver": { "name": "王芳", "phone": "139****0001", "address": "北京市朝阳区建国路88号" },
+      "itemCategory": "日用品",
+      "weight": 1.2,
+      "serviceType": "standard",
+      "serviceLabel": "标准快递",
+      "carrierId": "sf",
+      "carrierName": "顺丰速运",
+      "pickupTime": "今天 14:00-16:00",
+      "note": "易碎物品请轻放",
+      "fee": 12.0,
+      "status": "completed",
+      "createdAt": 1752403200000
+    },
+    {
+      "id": "send-002",
+      "sender": { "name": "王小明", "phone": "138****8888", "address": "上海市浦东新区张江路100号" },
+      "receiver": { "name": "李强", "phone": "139****0010", "address": "深圳市南山区阳光小区3栋1号" },
+      "itemCategory": "服饰鞋包",
+      "weight": 0.8,
+      "serviceType": "economy",
+      "serviceLabel": "经济快递",
+      "carrierId": "zt",
+      "carrierName": "中通快递",
+      "pickupTime": "明天 14:00-16:00",
+      "note": "",
+      "fee": 8.0,
+      "status": "pending_pickup",
+      "createdAt": 1752576000000
+    }
+  ],
+  "addresses": [
+    {
+      "id": "addr-001",
+      "name": "王小明",
+      "phone": "138****8888",
+      "province": "上海市",
+      "city": "上海市",
+      "district": "浦东新区",
+      "detail": "张江路100号",
+      "tag": "家",
+      "isDefault": true
+    },
+    {
+      "id": "addr-002",
+      "name": "王小明",
+      "phone": "138****8888",
+      "province": "北京市",
+      "city": "北京市",
+      "district": "朝阳区",
+      "detail": "建国路88号",
+      "tag": "公司",
+      "isDefault": false
+    },
+    {
+      "id": "addr-003",
+      "name": "王芳",
+      "phone": "139****0001",
+      "province": "广东省",
+      "city": "深圳市",
+      "district": "南山区",
+      "detail": "阳光小区3栋1号",
+      "tag": "其他",
+      "isDefault": false
+    }
+  ],
+  "notifications": [
+    {
+      "id": "notif-001",
+      "type": "pickup",
+      "title": "取件提醒",
+      "body": "您的包裹 ZT9876543210987 已到达菜鸟驿站·阳光小区店，取件码 8-2-4567，请及时取件。",
+      "time": 1752576000000,
+      "read": false,
+      "packageId": "pkg-002",
+      "archived": false
+    },
+    {
+      "id": "notif-002",
+      "type": "transit",
+      "title": "运输提醒",
+      "body": "您的包裹 SF1234567890123 正在运输中，预计 2026-07-14 送达。",
+      "time": 1752489600000,
+      "read": false,
+      "packageId": "pkg-001",
+      "archived": false
+    },
+    {
+      "id": "notif-003",
+      "type": "arrival",
+      "title": "到达提醒",
+      "body": "您的包裹 YT5566778899001 已到达成都锦江转运中心。",
+      "time": 1752403200000,
+      "read": true,
+      "packageId": "pkg-003",
+      "archived": false
+    },
+    {
+      "id": "notif-004",
+      "type": "system",
+      "title": "系统通知",
+      "body": "您的菜鸟会员等级已升级为黄金会员，享受更多寄件优惠。",
+      "time": 1752316800000,
+      "read": true,
+      "packageId": null,
+      "archived": false
+    },
+    {
+      "id": "notif-005",
+      "type": "pickup",
+      "title": "取件成功",
+      "body": "您的包裹 JD1122334455667 已取件成功，感谢使用菜鸟。",
+      "time": 1751808000000,
+      "read": true,
+      "packageId": "pkg-004",
+      "archived": false
+    }
+  ],
+  "search": {
+    "current": {
+      "trackingNo": null,
+      "resultPackageId": null,
+      "resultCount": 0,
+      "searched": false
+    },
+    "history": []
+  },
+  "filter": {
+    "currentStatus": null
+  },
+  "defaultAddressId": "addr-001",
+  "settings": {
+    "pickupAlert": true,
+    "transitAlert": true,
+    "arrivalAlert": true,
+    "themeId": "light"
+  }
+}
