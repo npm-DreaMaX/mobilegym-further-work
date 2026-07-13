@@ -1,0 +1,21 @@
+{
+  "user": { "id": "user_me", "name": "Alex Morgan", "email": "alex.morgan@gmail.com" },
+  "labels": { "label_work": { "id": "label_work", "name": "Work", "color": "#1a73e8" }, "label_receipts": { "id": "label_receipts", "name": "Receipts", "color": "#188038" } },
+  "threads": {
+    "thread_project_atlas": { "id": "thread_project_atlas", "messageIds": ["msg_atlas_1"], "folder": "inbox", "isRead": false, "isStarred": false, "isImportant": true, "labelIds": [], "updatedAt": 1741003200000 },
+    "thread_quarterly_report": { "id": "thread_quarterly_report", "messageIds": ["msg_quarterly_1"], "folder": "inbox", "isRead": true, "isStarred": false, "isImportant": false, "labelIds": ["label_work"], "updatedAt": 1740916800000 },
+    "thread_travel_receipt": { "id": "thread_travel_receipt", "messageIds": ["msg_travel_1"], "folder": "inbox", "isRead": false, "isStarred": true, "isImportant": false, "labelIds": [], "updatedAt": 1740830400000 },
+    "thread_security_alert": { "id": "thread_security_alert", "messageIds": ["msg_security_1"], "folder": "inbox", "isRead": false, "isStarred": false, "isImportant": false, "labelIds": [], "updatedAt": 1740744000000 },
+    "thread_trash_restore": { "id": "thread_trash_restore", "messageIds": ["msg_trash_1"], "folder": "trash", "isRead": true, "isStarred": false, "isImportant": false, "labelIds": [], "updatedAt": 1740657600000 },
+    "thread_labeled_recipes": { "id": "thread_labeled_recipes", "messageIds": ["msg_recipes_1"], "folder": "inbox", "isRead": true, "isStarred": false, "isImportant": false, "labelIds": [], "updatedAt": 1740571200000 }
+  },
+  "messages": {
+    "msg_atlas_1": { "id": "msg_atlas_1", "threadId": "thread_project_atlas", "from": "Maya Chen <maya.chen@example.com>", "to": ["alex.morgan@gmail.com"], "cc": [], "bcc": [], "subject": "Project Atlas launch plan", "body": "Hi Alex, the Project Atlas launch is scheduled for April 18. Please review the launch checklist.", "attachments": [], "sentAt": 1741003200000 },
+    "msg_quarterly_1": { "id": "msg_quarterly_1", "threadId": "thread_quarterly_report", "from": "Finance Team <finance@example.com>", "to": ["alex.morgan@gmail.com"], "cc": [], "bcc": [], "subject": "Quarterly finance report", "body": "The quarterly results and supporting report are attached.", "attachments": [{ "id": "att_q2_report", "name": "Q2-Financial-Report.pdf", "mimeType": "application/pdf", "size": 248320 }], "sentAt": 1740916800000 },
+    "msg_travel_1": { "id": "msg_travel_1", "threadId": "thread_travel_receipt", "from": "Travel Desk <travel@example.com>", "to": ["alex.morgan@gmail.com"], "cc": [], "bcc": [], "subject": "Your flight receipt", "body": "Your receipt for flight MG204 is ready.", "attachments": [{ "id": "att_flight", "name": "Flight-Receipt.pdf", "mimeType": "application/pdf", "size": 90112 }], "sentAt": 1740830400000 },
+    "msg_security_1": { "id": "msg_security_1", "threadId": "thread_security_alert", "from": "Unknown Sender <promo@suspicious.example>", "to": ["alex.morgan@gmail.com"], "cc": [], "bcc": [], "subject": "Claim your bonus now", "body": "Click immediately to claim an exclusive bonus.", "attachments": [], "sentAt": 1740744000000 },
+    "msg_trash_1": { "id": "msg_trash_1", "threadId": "thread_trash_restore", "from": "Nora Bell <nora@example.com>", "to": ["alex.morgan@gmail.com"], "cc": [], "bcc": [], "subject": "Neighborhood volunteer schedule", "body": "Here is the updated weekend volunteer schedule.", "attachments": [], "sentAt": 1740657600000 },
+    "msg_recipes_1": { "id": "msg_recipes_1", "threadId": "thread_labeled_recipes", "from": "Jamie Cook <jamie@example.com>", "to": ["alex.morgan@gmail.com"], "cc": [], "bcc": [], "subject": "Dinner recipes", "body": "Here are the recipes we discussed for Saturday dinner.", "attachments": [], "sentAt": 1740571200000 }
+  },
+  "drafts": {}, "sent": {}, "search": { "query": "", "resultThreadIds": [] }
+}

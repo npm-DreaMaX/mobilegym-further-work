@@ -350,6 +350,8 @@ class MobileGymEnv(BaseMobileEnv):
         "China Mobile": "chinamobile",
         "ChinaMobile": "chinamobile",
         "chinamobile": "chinamobile",
+        # gmail
+        "Gmail": "gmail",
         # answer_sheet - 答题卡
         "答题卡": "answer_sheet",
         "Answer Sheet": "answer_sheet",

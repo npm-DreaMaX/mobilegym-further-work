@@ -1,0 +1,3 @@
+import type { AppManifest } from '@/os/types/manifest';
+import { IcLauncher } from './res/icons';
+export const manifest: AppManifest = { id: 'gmail', packageName: 'com.google.android.gm', displayName: 'Gmail', displayNameEn: 'Gmail', aliases: ['Mail', 'Email'], version: '2026.07.01', versionCode: 1, type: 'plugin', icon: IcLauncher, iconBackground: '#ffffff', iconForeground: '#EA4335', designViewportWidth: 412, theme: { colors: { primary: '#0b57d0', primaryDark: '#0842a0', background: '#f6f8fc', surface: '#ffffff', textPrimary: '#1f1f1f', textSecondary: '#5f6368', border: '#e0e3e7', statusBarForeground: 'dark', navigationBarForeground: 'dark' } } };
