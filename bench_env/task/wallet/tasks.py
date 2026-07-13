@@ -1,90 +1,30 @@
-"""Wallet benchmark task definitions."""
+"""Exactly fifteen Wallet benchmark tasks."""
 
 from __future__ import annotations
 
 from typing import Any
 
 from bench_env.task.base import BaseTask
-from bench_env.task.common_tasks import AnswerTask, CriteriaTask, match_value
 from bench_env.task.judge import JudgeInput
-from bench_env.task.wallet.app import Wallet
+from bench_env.task.wallet.app import (
+    WALLET_ARCHIVE_CHANGES,
+    WALLET_CARD_FROZEN_CHANGES,
+    WALLET_CARD_NAME_CHANGES,
+    WALLET_CARDS_CHANGES,
+    WALLET_COUPON_CHANGES,
+    WALLET_COUPON_REDEEM_CHANGES,
+    WALLET_DEFAULT_CHANGES,
+    WALLET_RECHARGE_CHANGES,
+    WALLET_REWARD_CHANGES,
+    WALLET_SEARCH_CHANGES,
+    Wallet,
+)
 
-
-# ---------------------------------------------------------------------------
-# Sampler helpers
-# ---------------------------------------------------------------------------
-
-def _wallet(state: dict[str, Any]) -> Wallet:
-    return Wallet(state["apps"]["wallet"])
-
-
-def _sample_bank_card(env_state: dict[str, Any], rng: Any) -> dict[str, Any]:
-    cards = _wallet(env_state).cards_of_type("bank")
-    if not cards:
-        raise ValueError("No bank cards found in wallet state")
-    return rng.choice(cards)
-
-
-def _sample_non_default_bank_card(env_state: dict[str, Any], rng: Any) -> dict[str, Any]:
-    cards = [c for c in _wallet(env_state).cards_of_type("bank") if not c.get("isDefault")]
-    if not cards:
-        raise ValueError("No non-default bank cards found in wallet state")
-    return rng.choice(cards)
-
-
-def _sample_frozen_bank_card(env_state: dict[str, Any], rng: Any) -> dict[str, Any]:
-    cards = [c for c in _wallet(env_state).cards_of_type("bank") if c.get("frozen")]
-    if not cards:
-        raise ValueError("No frozen bank cards found in wallet state")
-    return rng.choice(cards)
-
-
-def _sample_transit_card(env_state: dict[str, Any], rng: Any) -> dict[str, Any]:
-    cards = _wallet(env_state).cards_of_type("transit")
-    if not cards:
-        raise ValueError("No transit cards found in wallet state")
-    return rng.choice(cards)
-
-
-def _sample_membership_card(env_state: dict[str, Any], rng: Any) -> dict[str, Any]:
-    cards = _wallet(env_state).cards_of_type("membership")
-    if not cards:
-        raise ValueError("No membership cards found in wallet state")
-    return rng.choice(cards)
-
-
-def _sample_unredeemed_coupon(env_state: dict[str, Any], rng: Any) -> dict[str, Any]:
-    coupons = [c for c in _wallet(env_state).coupons if not c.get("redeemed")]
-    if not coupons:
-        raise ValueError("No unredeemed coupons found in wallet state")
-    return rng.choice(coupons)
-
-
-def _sample_expired_ticket(env_state: dict[str, Any], rng: Any) -> dict[str, Any]:
-    tickets = _wallet(env_state).tickets
-    if not tickets:
-        raise ValueError("No expired tickets found in wallet state")
-    return rng.choice(tickets)
-
-
-def _sample_redeemable_reward(env_state: dict[str, Any], rng: Any) -> dict[str, Any]:
-    wallet = _wallet(env_state)
-    membership_ids = {c.get("id") for c in wallet.cards_of_type("membership")}
-    redeemable = [
-        r for r in wallet.rewards
-        if r.get("membershipCardId") in membership_ids
-    ]
-    if not redeemable:
-        raise ValueError("No redeemable rewards found in wallet state")
-    return rng.choice(redeemable)
-
-
-# ---------------------------------------------------------------------------
-# Tasks
-# ---------------------------------------------------------------------------
 
 class AddBankCard(BaseTask):
-    templates = ["添加一张{bank}的银行卡，持卡人{holder}，卡号后四位{last4}，昵称为{nickname}"]
+    """Verdict: exactly one matching bank card is created without modifying existing cards."""
+
+    templates = ["在卡包中添加一张{bank}银行卡，持卡人是{holder}，后四位为{last4}，昵称设为{nickname}"]
     apps = ["wallet"]
     scope = "S1"
     objective = "operate"
@@ -92,62 +32,39 @@ class AddBankCard(BaseTask):
     difficulty = "L2"
     capabilities = ["input"]
     parameters = {
-        "bank": {
-            "type": "enum",
-            "values": ["中国工商银行", "中国建设银行", "中国农业银行", "中国银行", "招商银行", "交通银行"],
-            "default": "中国工商银行",
-        },
+        "bank": {"type": "enum", "values": ["中国工商银行", "中国建设银行", "中国农业银行", "中国银行", "招商银行", "交通银行"], "default": "中国工商银行"},
         "holder": {"type": "string", "default": "张伟"},
         "last4": {"type": "string", "pattern": r"\d{4}", "default": "1234"},
         "nickname": {"type": "string", "default": "新工资卡"},
     }
-    expected_changes = ["cards"]
+    expected_changes = WALLET_CARDS_CHANGES
 
     def check_goals(self, input: JudgeInput) -> list[dict[str, Any]]:
-        wallet = Wallet(input.apps["wallet"])
-        card = wallet.bank_card_by_issuer_and_last4(self.p.bank, self.p.last4)
-        return [
-            {
-                "field": "cards",
-                "expected": f"bank card {self.p.nickname} exists",
-                "actual": card,
-                "passed": bool(
-                    card
-                    and card.get("name") == self.p.nickname
-                    and card.get("holder") == self.p.holder
-                ),
-            }
-        ]
+        wallet = Wallet(input.apps["wallet"], init=input.apps_init["wallet"])
+        return wallet.check_exactly_one_new_card({"type": "bank", "issuer": self.p.bank, "holder": self.p.holder, "last4": self.p.last4, "name": self.p.nickname})
 
 
-class SetDefaultCard(CriteriaTask):
-    templates = ["将{cards}银行卡设为默认卡"]
+class SetDefaultCard(BaseTask):
+    """Verdict: target ID is the only default bank card."""
+
+    templates = ["把{card_name}设为默认银行卡"]
     apps = ["wallet"]
     scope = "S1"
     objective = "operate"
     composition = "atomic"
     difficulty = "L1"
     capabilities = ["select"]
-    parameters = {
-        "cards": {
-            "type": "string",
-            "sampler": _sample_non_default_bank_card,
-            "fields": {"cards": "name"},
-            "default": "储蓄卡",
-        }
-    }
-    criteria: dict[str, Any] = {"defaultCardId": "{card_id}"}
-    expected_changes = ["defaultCardId", "cards[].isDefault"]
+    parameters = {"card_name": {"type": "string", "sampler": Wallet.sample_non_default_bank_card, "fields": {"card_name": "name", "card_id": "id"}, "default": "储蓄卡"}}
+    expected_changes = WALLET_DEFAULT_CHANGES
 
-    async def _post_sample(self, env: Any) -> None:
-        await self._invert_criteria(env)
-
-    def get_expected_changes(self, input: JudgeInput) -> list[str]:
-        return ["defaultCardId", "cards[].isDefault"]
+    def check_goals(self, input: JudgeInput) -> list[dict[str, Any]]:
+        return Wallet(input.apps["wallet"], init=input.apps_init["wallet"]).check_default_card(self.params["card_id"])
 
 
-class RenameCard(BaseTask):
-    templates = ["将{cards}重命名为{new_name}"]
+class RenameBankCard(BaseTask):
+    """Verdict: only the target bank card nickname changes."""
+
+    templates = ["把银行卡{card_name}的昵称改为{new_name}"]
     apps = ["wallet"]
     scope = "S1"
     objective = "operate"
@@ -155,170 +72,104 @@ class RenameCard(BaseTask):
     difficulty = "L2"
     capabilities = ["input"]
     parameters = {
-        "cards": {
-            "type": "string",
-            "sampler": _sample_bank_card,
-            "fields": {"cards": "name", "card_id": "id"},
-            "default": "工资卡",
-        },
+        "card_name": {"type": "string", "sampler": Wallet.sample_bank_card, "fields": {"card_name": "name", "card_id": "id"}, "default": "工资卡"},
         "new_name": {"type": "string", "default": "我的银行卡"},
     }
-    expected_changes = ["cards[].name"]
+    expected_changes = WALLET_CARD_NAME_CHANGES
 
     def check_goals(self, input: JudgeInput) -> list[dict[str, Any]]:
-        wallet = Wallet(input.apps["wallet"])
-        card = wallet.card_by_id(self.params.get("card_id", ""))
-        return [
-            {
-                "field": "cards[].name",
-                "expected": self.p.new_name,
-                "actual": card.get("name") if card else None,
-                "passed": bool(card and card.get("name") == self.p.new_name),
-            }
-        ]
+        return Wallet(input.apps["wallet"], init=input.apps_init["wallet"]).check_card_field(self.params["card_id"], "name", self.p.new_name)
 
 
-class FreezeCard(CriteriaTask):
-    templates = ["冻结{cards}"]
+class FreezeBankCard(BaseTask):
+    """Verdict: target bank card alone becomes frozen."""
+
+    templates = ["冻结银行卡{card_name}"]
     apps = ["wallet"]
     scope = "S1"
     objective = "operate"
     composition = "atomic"
     difficulty = "L1"
     capabilities = ["select"]
-    parameters = {
-        "cards": {
-            "type": "string",
-            "sampler": _sample_bank_card,
-            "fields": {"cards": "name", "card_id": "id"},
-            "default": "工资卡",
-        }
-    }
-    criteria: dict[str, Any] = {"cards[id={card_id}].frozen": True}
-    expected_changes = ["cards[].frozen"]
+    parameters = {"card_name": {"type": "string", "sampler": Wallet.sample_non_default_bank_card, "fields": {"card_name": "name", "card_id": "id"}, "default": "储蓄卡"}}
+    expected_changes = WALLET_CARD_FROZEN_CHANGES
 
-    async def _post_sample(self, env: Any) -> None:
-        await self._invert_criteria(env)
+    def check_goals(self, input: JudgeInput) -> list[dict[str, Any]]:
+        return Wallet(input.apps["wallet"], init=input.apps_init["wallet"]).check_card_field(self.params["card_id"], "frozen", True)
 
 
-class UnfreezeCard(CriteriaTask):
-    templates = ["解冻{cards}"]
+class UnfreezeBankCard(BaseTask):
+    """Verdict: target frozen bank card alone becomes active."""
+
+    templates = ["解冻银行卡{card_name}"]
     apps = ["wallet"]
     scope = "S1"
     objective = "operate"
     composition = "atomic"
     difficulty = "L1"
     capabilities = ["select"]
-    parameters = {
-        "cards": {
-            "type": "string",
-            "sampler": _sample_frozen_bank_card,
-            "fields": {"cards": "name", "card_id": "id"},
-            "default": "信用卡",
-        }
-    }
-    criteria: dict[str, Any] = {"cards[id={card_id}].frozen": False}
-    expected_changes = ["cards[].frozen"]
+    parameters = {"card_name": {"type": "string", "sampler": Wallet.sample_frozen_bank_card, "fields": {"card_name": "name", "card_id": "id"}, "default": "信用卡"}}
+    expected_changes = WALLET_CARD_FROZEN_CHANGES
 
-    async def _post_sample(self, env: Any) -> None:
-        await self._invert_criteria(env)
+    def check_goals(self, input: JudgeInput) -> list[dict[str, Any]]:
+        return Wallet(input.apps["wallet"], init=input.apps_init["wallet"]).check_card_field(self.params["card_id"], "frozen", False)
 
 
-class DeleteCard(BaseTask):
-    templates = ["删除{cards}"]
+class DeleteBankCard(BaseTask):
+    """Verdict: only target ID is deleted and default invariants remain valid."""
+
+    templates = ["从卡包删除银行卡{card_name}"]
     apps = ["wallet"]
     scope = "S1"
     objective = "operate"
     composition = "atomic"
     difficulty = "L2"
     capabilities = ["select"]
-    parameters = {
-        "cards": {
-            "type": "string",
-            "sampler": _sample_bank_card,
-            "fields": {"cards": "name", "card_id": "id"},
-            "default": "储蓄卡",
-        }
-    }
-    expected_changes = ["cards", "defaultCardId"]
+    parameters = {"card_name": {"type": "string", "sampler": Wallet.sample_bank_card, "fields": {"card_name": "name", "card_id": "id"}, "default": "储蓄卡"}}
+    expected_changes = WALLET_CARDS_CHANGES + ["defaultCardId"]
 
     def check_goals(self, input: JudgeInput) -> list[dict[str, Any]]:
-        wallet = Wallet(input.apps["wallet"])
-        card_id = self.params.get("card_id", "")
-        return [
-            {
-                "field": "cards",
-                "expected": f"card {card_id} removed",
-                "actual": wallet.card_by_id(card_id),
-                "passed": wallet.card_by_id(card_id) is None,
-            }
-        ]
+        return Wallet(input.apps["wallet"], init=input.apps_init["wallet"]).check_deleted_card(self.params["card_id"])
 
 
-class SortCards(BaseTask):
-    templates = ["将{cards}移动到卡片列表第一位"]
+class ReorderBankCards(BaseTask):
+    """Verdict: target stable ID moves to the first persisted card position."""
+
+    templates = ["把银行卡{card_name}移动到卡片列表最上方"]
     apps = ["wallet"]
     scope = "S1"
     objective = "operate"
     composition = "atomic"
     difficulty = "L2"
     capabilities = ["select"]
-    parameters = {
-        "cards": {
-            "type": "string",
-            "sampler": _sample_non_default_bank_card,
-            "fields": {"cards": "name", "card_id": "id"},
-            "default": "储蓄卡",
-        }
-    }
-    expected_changes = ["cards"]
+    parameters = {"card_name": {"type": "string", "sampler": Wallet.sample_non_default_bank_card, "fields": {"card_name": "name", "card_id": "id"}, "default": "储蓄卡"}}
+    expected_changes = WALLET_CARDS_CHANGES
 
     def check_goals(self, input: JudgeInput) -> list[dict[str, Any]]:
-        wallet = Wallet(input.apps["wallet"])
-        card_id = self.params.get("card_id", "")
-        cards = wallet.cards
-        return [
-            {
-                "field": "cards[0].id",
-                "expected": card_id,
-                "actual": cards[0].get("id") if cards else None,
-                "passed": bool(cards and cards[0].get("id") == card_id),
-            }
-        ]
+        return Wallet(input.apps["wallet"], init=input.apps_init["wallet"]).check_reordered_first(self.params["card_id"])
 
 
 class AddTransitCard(BaseTask):
-    templates = ["添加一张{city}的交通卡"]
+    """Verdict: exactly one transit card for the requested city is created."""
+
+    templates = ["在卡包中添加一张{city}交通卡"]
     apps = ["wallet"]
     scope = "S1"
     objective = "operate"
     composition = "atomic"
     difficulty = "L2"
     capabilities = ["select"]
-    parameters = {
-        "city": {
-            "type": "enum",
-            "values": ["北京", "上海", "广州", "深圳", "杭州", "成都", "武汉", "西安", "重庆", "南京"],
-            "default": "上海",
-        }
-    }
-    expected_changes = ["cards"]
+    parameters = {"city": {"type": "enum", "values": ["北京", "上海", "广州", "深圳", "杭州", "成都", "武汉", "西安", "重庆", "南京"], "default": "上海"}}
+    expected_changes = WALLET_CARDS_CHANGES
 
     def check_goals(self, input: JudgeInput) -> list[dict[str, Any]]:
-        wallet = Wallet(input.apps["wallet"])
-        card = wallet.transit_card_by_city(self.p.city)
-        return [
-            {
-                "field": "cards",
-                "expected": f"transit card for {self.p.city}",
-                "actual": card,
-                "passed": bool(card),
-            }
-        ]
+        return Wallet(input.apps["wallet"], init=input.apps_init["wallet"]).check_exactly_one_new_card({"type": "transit", "city": self.p.city})
 
 
 class RechargeTransitCard(BaseTask):
-    templates = ["为{cards}充值{amount}元"]
+    """Verdict: target balance and one matching recharge record change, other transit cards do not."""
+
+    templates = ["给交通卡{card_name}充值{amount}元"]
     apps = ["wallet"]
     scope = "S1"
     objective = "operate"
@@ -326,48 +177,19 @@ class RechargeTransitCard(BaseTask):
     difficulty = "L2"
     capabilities = ["input"]
     parameters = {
-        "cards": {
-            "type": "string",
-            "sampler": _sample_transit_card,
-            "fields": {"cards": "name", "card_id": "id"},
-            "default": "北京一卡通",
-        },
-        "amount": {"type": "int", "min": 10, "max": 200, "default": 50},
+        "card_name": {"type": "string", "sampler": Wallet.sample_transit_card, "fields": {"card_name": "name", "card_id": "id"}, "default": "北京一卡通"},
+        "amount": {"type": "enum", "values": [50, 100], "default": 50},
     }
-    expected_changes = ["cards[].balance", "transactions"]
+    expected_changes = WALLET_RECHARGE_CHANGES
 
     def check_goals(self, input: JudgeInput) -> list[dict[str, Any]]:
-        wallet = Wallet(input.apps["wallet"])
-        card_id = self.params.get("card_id", "")
-        init_wallet = Wallet(input.apps_init["wallet"])
-        init_card = init_wallet.card_by_id(card_id)
-        card = wallet.card_by_id(card_id)
-        init_balance = init_card.get("balance", 0) if init_card else 0
-        checks = [
-            {
-                "field": "cards[].balance",
-                "expected": init_balance + self.p.amount,
-                "actual": card.get("balance") if card else None,
-                "passed": bool(card and card.get("balance") == init_balance + self.p.amount),
-            }
-        ]
-        txn = next(
-            (t for t in wallet.transactions if t.get("cardId") == card_id and t.get("type") == "recharge"),
-            None,
-        )
-        checks.append(
-            {
-                "field": "transactions",
-                "expected": f"recharge transaction for {card_id}",
-                "actual": txn,
-                "passed": bool(txn and txn.get("amount") == self.p.amount),
-            }
-        )
-        return checks
+        return Wallet(input.apps["wallet"], init=input.apps_init["wallet"]).check_recharge(self.params["card_id"], self.p.amount)
 
 
 class AddMembershipCard(BaseTask):
-    templates = ["添加一张{brand}会员卡，会员编号为{member_number}"]
+    """Verdict: exactly one requested membership card is created."""
+
+    templates = ["添加一张{brand}会员卡，会员编号填写{member_number}"]
     apps = ["wallet"]
     scope = "S1"
     objective = "operate"
@@ -375,86 +197,36 @@ class AddMembershipCard(BaseTask):
     difficulty = "L2"
     capabilities = ["input"]
     parameters = {
-        "brand": {
-            "type": "enum",
-            "values": ["星巴克", "海底捞", "山姆会员", "Costco", "奈雪的茶", "喜茶", "瑞幸咖啡", "盒马鲜生"],
-            "default": "星巴克",
-        },
+        "brand": {"type": "enum", "values": ["星巴克", "海底捞", "山姆会员", "Costco", "奈雪的茶", "喜茶", "瑞幸咖啡", "盒马鲜生"], "default": "星巴克"},
         "member_number": {"type": "string", "pattern": r"[A-Z0-9]{8,12}", "default": "SB20240088"},
     }
-    expected_changes = ["cards"]
+    expected_changes = WALLET_CARDS_CHANGES
 
     def check_goals(self, input: JudgeInput) -> list[dict[str, Any]]:
-        wallet = Wallet(input.apps["wallet"])
-        card = next(
-            (c for c in wallet.cards_of_type("membership")
-             if self.p.brand in str(c.get("issuer") or "")
-             and c.get("memberNumber") == self.p.member_number),
-            None,
-        )
-        return [
-            {
-                "field": "cards",
-                "expected": f"membership card {self.p.brand} with {self.p.member_number}",
-                "actual": card,
-                "passed": bool(card),
-            }
-        ]
+        return Wallet(input.apps["wallet"], init=input.apps_init["wallet"]).check_exactly_one_new_card({"type": "membership", "issuer": self.p.brand, "memberNumber": self.p.member_number})
 
 
 class RedeemReward(BaseTask):
-    templates = ["用{cards}的积分兑换{reward_name}"]
+    """Verdict: target reward is redeemed once and points remain nonnegative."""
+
+    templates = ["使用{card_name}的积分兑换{reward_name}"]
     apps = ["wallet"]
     scope = "S1"
     objective = "operate"
     composition = "atomic"
-    difficulty = "L3"
+    difficulty = "L2"
     capabilities = ["select"]
-    parameters = {
-        "cards": {
-            "type": "string",
-            "sampler": _sample_membership_card,
-            "fields": {"cards": "name", "card_id": "id"},
-            "default": "海底捞会员",
-        },
-        "reward_name": {
-            "type": "string",
-            "sampler": _sample_redeemable_reward,
-            "fields": {"reward_name": "name", "reward_id": "id", "membership_card_id": "membershipCardId"},
-            "default": "100元代金券",
-        },
-    }
-    expected_changes = ["cards[].points", "redeemedRewards"]
+    parameters = {"reward_name": {"type": "string", "sampler": Wallet.sample_reward, "fields": {"reward_name": "name", "reward_id": "id", "card_id": "membershipCardId", "card_name": "cardName"}, "default": "100元代金券"}, "card_name": {"type": "string", "default": "海底捞会员"}}
+    expected_changes = WALLET_REWARD_CHANGES
 
     def check_goals(self, input: JudgeInput) -> list[dict[str, Any]]:
-        wallet = Wallet(input.apps["wallet"])
-        card_id = self.params.get("membership_card_id", self.params.get("card_id", ""))
-        card = wallet.card_by_id(card_id)
-        init_wallet = Wallet(input.apps_init["wallet"])
-        init_card = init_wallet.card_by_id(card_id)
-        init_points = init_card.get("points", 0) if init_card else 0
-        reward_id = self.params.get("reward_id", "")
-        reward = wallet.reward_by_name(self.p.reward_name)
-        points_cost = reward.get("pointsCost", 0) if reward else 0
-        redeemed = any(r.get("rewardId") == reward_id for r in wallet.redeemed_rewards)
-        return [
-            {
-                "field": "cards[].points",
-                "expected": init_points - points_cost,
-                "actual": card.get("points") if card else None,
-                "passed": bool(card and card.get("points") == init_points - points_cost),
-            },
-            {
-                "field": "redeemedRewards",
-                "expected": f"reward {reward_id} redeemed",
-                "actual": wallet.redeemed_rewards,
-                "passed": redeemed,
-            },
-        ]
+        return Wallet(input.apps["wallet"], init=input.apps_init["wallet"]).check_reward_redemption(self.params["card_id"], self.params["reward_id"])
 
 
 class AddCoupon(BaseTask):
-    templates = ["添加一张{merchant}优惠券，券码{code}，面值{value}元"]
+    """Verdict: exactly one matching unredeemed coupon is created."""
+
+    templates = ["添加一张{merchant}优惠券，券码为{code}，面值{value}元"]
     apps = ["wallet"]
     scope = "S1"
     objective = "operate"
@@ -462,147 +234,75 @@ class AddCoupon(BaseTask):
     difficulty = "L2"
     capabilities = ["input"]
     parameters = {
-        "merchant": {
-            "type": "enum",
-            "values": ["麦当劳", "肯德基", "必胜客", "星巴克", "瑞幸咖啡", "喜茶", "奈雪的茶", "海底捞"],
-            "default": "麦当劳",
-        },
+        "merchant": {"type": "enum", "values": ["麦当劳", "肯德基", "必胜客", "星巴克", "瑞幸咖啡", "喜茶", "奈雪的茶", "海底捞"], "default": "麦当劳"},
         "code": {"type": "string", "pattern": r"[A-Z0-9]{6,10}", "default": "NEWCODE1"},
         "value": {"type": "int", "min": 5, "max": 100, "default": 20},
     }
-    expected_changes = ["coupons"]
+    expected_changes = WALLET_COUPON_CHANGES
 
     def check_goals(self, input: JudgeInput) -> list[dict[str, Any]]:
-        wallet = Wallet(input.apps["wallet"])
-        coupon = wallet.coupon_by_code(self.p.code)
-        return [
-            {
-                "field": "coupons",
-                "expected": f"coupon {self.p.code} for {self.p.merchant}",
-                "actual": coupon,
-                "passed": bool(
-                    coupon
-                    and coupon.get("merchant") == self.p.merchant
-                    and coupon.get("value") == self.p.value
-                ),
-            }
-        ]
+        return Wallet(input.apps["wallet"], init=input.apps_init["wallet"]).check_exactly_one_new_coupon(self.p.merchant, self.p.code, self.p.value)
 
 
 class RedeemCoupon(BaseTask):
-    templates = ["核销券码{coupon_code}的优惠券"]
+    """Verdict: target coupon ID alone becomes redeemed with a timestamp."""
+
+    templates = ["核销券码为{coupon_code}的优惠券"]
     apps = ["wallet"]
     scope = "S1"
     objective = "operate"
     composition = "atomic"
     difficulty = "L2"
     capabilities = ["select"]
-    parameters = {
-        "coupon_code": {
-            "type": "string",
-            "sampler": _sample_unredeemed_coupon,
-            "fields": {"coupon_code": "code", "coupon_id": "id"},
-            "default": "MCD2024A",
-        }
-    }
-    expected_changes = ["coupons[].redeemed"]
+    parameters = {"coupon_code": {"type": "string", "sampler": Wallet.sample_unredeemed_coupon, "fields": {"coupon_code": "code", "coupon_id": "id"}, "default": "MCD2024A"}}
+    expected_changes = WALLET_COUPON_REDEEM_CHANGES
 
     def check_goals(self, input: JudgeInput) -> list[dict[str, Any]]:
-        wallet = Wallet(input.apps["wallet"])
-        coupon_id = self.params.get("coupon_id", "")
-        coupon = wallet.coupon_by_code(self.p.coupon_code)
-        return [
-            {
-                "field": "coupons[].redeemed",
-                "expected": True,
-                "actual": coupon.get("redeemed") if coupon else None,
-                "passed": bool(coupon and coupon.get("redeemed") is True),
-            }
-        ]
+        return Wallet(input.apps["wallet"], init=input.apps_init["wallet"]).check_redeemed_coupon(self.params["coupon_id"])
 
 
 class ArchiveExpiredTicket(BaseTask):
-    templates = ["将过期的{ticket_title}票券归档"]
+    """Verdict: target ticket ID moves exactly once from expired to archived."""
+
+    templates = ["把过期票券{ticket_title}归档"]
     apps = ["wallet"]
     scope = "S1"
     objective = "operate"
     composition = "atomic"
     difficulty = "L2"
     capabilities = ["select"]
-    parameters = {
-        "ticket_title": {
-            "type": "string",
-            "sampler": _sample_expired_ticket,
-            "fields": {"ticket_title": "title", "ticket_id": "id"},
-            "default": "5元快车券",
-        }
-    }
-    expected_changes = ["tickets", "archivedTickets"]
+    parameters = {"ticket_title": {"type": "string", "sampler": Wallet.sample_expired_ticket, "fields": {"ticket_title": "title", "ticket_id": "id"}, "default": "5元快车券"}}
+    expected_changes = WALLET_ARCHIVE_CHANGES
 
     def check_goals(self, input: JudgeInput) -> list[dict[str, Any]]:
-        wallet = Wallet(input.apps["wallet"])
-        ticket_id = self.params.get("ticket_id", "")
-        return [
-            {
-                "field": "tickets",
-                "expected": f"ticket {ticket_id} removed",
-                "actual": wallet.ticket_by_title(self.p.ticket_title),
-                "passed": wallet.ticket_by_title(self.p.ticket_title) is None,
-            },
-            {
-                "field": "archivedTickets",
-                "expected": f"ticket {ticket_id} archived",
-                "actual": wallet.archived_tickets,
-                "passed": any(t.get("id") == ticket_id for t in wallet.archived_tickets),
-            },
-        ]
+        return Wallet(input.apps["wallet"], init=input.apps_init["wallet"]).check_archived_ticket(self.params["ticket_id"])
 
 
 class SearchMembershipNumber(BaseTask):
-    templates = ["搜索{brand}会员卡，打开详情，查看会员编号"]
+    """Verdict: search trace identifies the exact membership ID and AnswerSheet submits its number."""
+
+    templates = ["在卡包里搜索{brand}会员卡，打开正确的会员详情，并把会员编号填写到答案表"]
     apps = ["wallet"]
     scope = "S1"
     objective = "query"
     composition = "sequential"
     difficulty = "L3"
     capabilities = ["search", "extract"]
-    parameters = {
-        "brand": {
-            "type": "string",
-            "sampler": _sample_membership_card,
-            "fields": {"brand": "issuer", "card_id": "id", "member_number": "memberNumber"},
-            "default": "星巴克",
-        }
-    }
-    answer_fields = [{"type": "text", "label": "会员编号"}]
-    expected_changes = ["searchHistory"]
+    parameters = {"brand": {"type": "string", "sampler": Wallet.sample_membership_card, "fields": {"brand": "issuer", "card_id": "id", "member_number": "memberNumber"}, "default": "星巴克"}}
+    answer_fields = [{"type": "text", "label": "会员编号", "hint": "例如 SB20240001"}]
+    expected_changes = WALLET_SEARCH_CHANGES
 
-    def get_answer(self, input: JudgeInput) -> Any:
-        return self.params.get("member_number", "")
+    def get_answer(self, input: JudgeInput) -> str:
+        card = Wallet(input.apps_init["wallet"]).card_by_id(self.params["card_id"])
+        if card is None:
+            raise ValueError(f"Membership card {self.params['card_id']!r} missing")
+        return card["memberNumber"]
 
     def check_goals(self, input: JudgeInput) -> list[dict[str, Any]]:
-        wallet = Wallet(input.apps["wallet"])
-        card_id = self.params.get("card_id", "")
-        member_number = self.params.get("member_number", "")
-        card = wallet.card_by_id(card_id)
-        checks = [
-            {
-                "field": "route",
-                "expected": f"/card/{card_id}",
-                "actual": input.route.get("path", ""),
-                "passed": input.route.get("path", "") == f"/card/{card_id}",
-            },
-            {
-                "field": "searchHistory",
-                "expected": self.p.brand,
-                "actual": wallet.get("searchHistory", []),
-                "passed": wallet.has_search_history(self.p.brand),
-            },
-            {
-                "field": "answer",
-                "expected": member_number,
-                "actual": input.answer,
-                "passed": bool(input.answer and match_value(member_number, input.answer)),
-            },
-        ]
+        wallet = Wallet(input.apps["wallet"], init=input.apps_init["wallet"])
+        card_id = self.params["card_id"]
+        expected_route = f"/membership-cards/{card_id}"
+        checks = wallet.check_search_trace(self.p.brand, card_id, expected_route)
+        checks.append({"field": "route", "expected": expected_route, "actual": input.route["path"], "passed": input.route["path"] == expected_route})
+        checks.extend(wallet.check_answer_sheet(self.get_answer(input), input))
         return checks

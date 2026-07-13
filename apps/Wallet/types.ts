@@ -1,4 +1,5 @@
 export type CardType = 'bank' | 'transit' | 'membership';
+export type BankCardType = 'debit' | 'credit';
 export type PassType = 'coupon' | 'ticket';
 
 export interface WalletCard {
@@ -9,6 +10,7 @@ export interface WalletCard {
   holder?: string;
   last4?: string;
   number?: string;
+  cardType?: BankCardType;
   balance: number;
   points?: number;
   memberNumber?: string;
@@ -89,5 +91,7 @@ export interface WalletState {
   _temp: {
     searchQuery: string;
     filterType: 'all' | CardType | PassType;
+    lastViewedCardId: string | null;
+    lastViewedRoute: string | null;
   };
 }
