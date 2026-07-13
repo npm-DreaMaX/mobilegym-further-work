@@ -1,0 +1,178 @@
+{
+  "user": {
+    "id": "user_me_001",
+    "name": "Alex",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=alex",
+    "phone": "+1 555-0101",
+    "username": "@alex_smith",
+    "bio": "Mobile app developer"
+  },
+  "contacts": [
+    { "id": "user_alice_002", "name": "Alice Johnson", "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=alice", "phone": "+1 555-0202", "username": "@alice_j", "bio": "Designer at TechCorp", "online": true },
+    { "id": "user_bob_003", "name": "Bob Martinez", "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=bob", "phone": "+1 555-0303", "username": "@bob_m", "bio": "Software Engineer", "online": false, "lastSeen": 1720800000000 },
+    { "id": "user_carol_004", "name": "Carol White", "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=carol", "phone": "+1 555-0404", "username": "@carol_w", "bio": "Product Manager", "online": true },
+    { "id": "user_dave_005", "name": "Dave Chen", "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=dave", "phone": "+1 555-0505", "username": "@dave_c", "bio": "Data Scientist", "online": false, "lastSeen": 1720790000000 },
+    { "id": "user_eve_006", "name": "Eve Thompson", "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=eve", "phone": "+1 555-0606", "username": "@eve_t", "bio": "Marketing Lead", "online": false, "lastSeen": 1720780000000 },
+    { "id": "user_frank_007", "name": "Frank Wilson", "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=frank", "phone": "+1 555-0707", "username": "@frank_w", "bio": "DevOps Engineer", "online": true },
+    { "id": "user_grace_008", "name": "Grace Kim", "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=grace", "phone": "+1 555-0808", "username": "@grace_k", "bio": "UX Researcher", "online": false, "lastSeen": 1720770000000 },
+    { "id": "user_boss_009", "name": "Boss", "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=boss", "phone": "+1 555-0909", "username": "@boss_ceo", "bio": "CEO", "online": true }
+  ],
+  "chats": [
+    {
+      "id": "chat_alice",
+      "type": "private",
+      "title": "Alice Johnson",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=alice",
+      "pinned": true,
+      "muted": false,
+      "archived": false,
+      "unreadCount": 2,
+      "messages": [
+        { "id": "msg_alice_001", "type": "text", "content": "Hey Alex! How's the project going?", "senderId": "user_alice_002", "senderName": "Alice", "timestamp": 1720800000000, "reactions": [] },
+        { "id": "msg_alice_002", "type": "text", "content": "Going well, thanks! Just finishing the Telegram integration.", "senderId": "user_me_001", "senderName": "Alex", "timestamp": 1720800060000, "reactions": [{ "emoji": "👍", "count": 1, "userReacted": false }] },
+        { "id": "msg_alice_003", "type": "text", "content": "Great! Can you share the demo link?", "senderId": "user_alice_002", "senderName": "Alice", "timestamp": 1720800120000, "reactions": [] },
+        { "id": "msg_alice_004", "type": "text", "content": "Sure, I'll send it after the meeting.", "senderId": "user_me_001", "senderName": "Alex", "timestamp": 1720800180000, "reactions": [] },
+        { "id": "msg_alice_005", "type": "text", "content": "Don't forget the quarterly report due Friday!", "senderId": "user_alice_002", "senderName": "Alice", "timestamp": 1720800240000, "reactions": [] }
+      ],
+      "lastActivity": 1720800240000
+    },
+    {
+      "id": "chat_bob",
+      "type": "private",
+      "title": "Bob Martinez",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=bob",
+      "pinned": false,
+      "muted": true,
+      "archived": false,
+      "unreadCount": 0,
+      "messages": [
+        { "id": "msg_bob_001", "type": "text", "content": "Hey Bob, are you coming to the team lunch?", "senderId": "user_me_001", "senderName": "Alex", "timestamp": 1720700000000, "reactions": [] },
+        { "id": "msg_bob_002", "type": "text", "content": "Yes! What time is it?", "senderId": "user_bob_003", "senderName": "Bob", "timestamp": 1720700060000, "reactions": [] },
+        { "id": "msg_bob_003", "type": "text", "content": "12:30 PM at the Italian place on 5th.", "senderId": "user_me_001", "senderName": "Alex", "timestamp": 1720700120000, "reactions": [] },
+        { "id": "msg_bob_004", "type": "text", "content": "Perfect, see you there!", "senderId": "user_bob_003", "senderName": "Bob", "timestamp": 1720700180000, "reactions": [] }
+      ],
+      "lastActivity": 1720700180000
+    },
+    {
+      "id": "chat_carol",
+      "type": "private",
+      "title": "Carol White",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=carol",
+      "pinned": false,
+      "muted": false,
+      "archived": false,
+      "unreadCount": 1,
+      "messages": [
+        { "id": "msg_carol_001", "type": "text", "content": "The design review is scheduled for Thursday.", "senderId": "user_carol_004", "senderName": "Carol", "timestamp": 1720600000000, "reactions": [] },
+        { "id": "msg_carol_002", "type": "text", "content": "Got it, I'll prepare the slides.", "senderId": "user_me_001", "senderName": "Alex", "timestamp": 1720600060000, "reactions": [] },
+        { "id": "msg_carol_003", "type": "text", "content": "Also, can you check the user flow for the new feature?", "senderId": "user_carol_004", "senderName": "Carol", "timestamp": 1720600120000, "reactions": [{ "emoji": "❤️", "count": 1, "userReacted": false }] }
+      ],
+      "lastActivity": 1720600120000
+    },
+    {
+      "id": "chat_dave",
+      "type": "private",
+      "title": "Dave Chen",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=dave",
+      "pinned": false,
+      "muted": false,
+      "archived": true,
+      "unreadCount": 0,
+      "messages": [
+        { "id": "msg_dave_001", "type": "text", "content": "The ML model training finished!", "senderId": "user_dave_005", "senderName": "Dave", "timestamp": 1720500000000, "reactions": [] },
+        { "id": "msg_dave_002", "type": "text", "content": "What's the accuracy?", "senderId": "user_me_001", "senderName": "Alex", "timestamp": 1720500060000, "reactions": [] },
+        { "id": "msg_dave_003", "type": "text", "content": "94.7% — better than expected!", "senderId": "user_dave_005", "senderName": "Dave", "timestamp": 1720500120000, "reactions": [{ "emoji": "🔥", "count": 2, "userReacted": true }] }
+      ],
+      "lastActivity": 1720500120000
+    },
+    {
+      "id": "chat_engineering",
+      "type": "group",
+      "title": "Engineering Team",
+      "avatar": "https://api.dicebear.com/7.x/shapes/svg?seed=engineering",
+      "pinned": true,
+      "muted": false,
+      "archived": false,
+      "unreadCount": 3,
+      "members": [
+        { "id": "user_me_001", "name": "Alex", "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=alex", "role": "owner" },
+        { "id": "user_alice_002", "name": "Alice Johnson", "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=alice", "role": "admin" },
+        { "id": "user_bob_003", "name": "Bob Martinez", "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=bob", "role": "member" },
+        { "id": "user_dave_005", "name": "Dave Chen", "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=dave", "role": "member" },
+        { "id": "user_frank_007", "name": "Frank Wilson", "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=frank", "role": "member" }
+      ],
+      "createdBy": "user_me_001",
+      "messages": [
+        { "id": "msg_eng_001", "type": "text", "content": "Sprint planning at 10 AM tomorrow.", "senderId": "user_alice_002", "senderName": "Alice", "timestamp": 1720750000000, "reactions": [] },
+        { "id": "msg_eng_002", "type": "text", "content": "I'll present the performance improvements.", "senderId": "user_me_001", "senderName": "Alex", "timestamp": 1720750060000, "reactions": [] },
+        { "id": "msg_eng_003", "type": "text", "content": "Don't forget to update your JIRA tickets!", "senderId": "user_bob_003", "senderName": "Bob", "timestamp": 1720750120000, "reactions": [] },
+        { "id": "msg_eng_004", "type": "text", "content": "The new deployment pipeline is live.", "senderId": "user_frank_007", "senderName": "Frank", "timestamp": 1720750180000, "reactions": [{ "emoji": "🔥", "count": 3, "userReacted": false }] },
+        { "id": "msg_eng_005", "type": "text", "content": "Great work everyone!", "senderId": "user_alice_002", "senderName": "Alice", "timestamp": 1720750240000, "reactions": [] }
+      ],
+      "lastActivity": 1720750240000
+    },
+    {
+      "id": "chat_design",
+      "type": "group",
+      "title": "Design Review",
+      "avatar": "https://api.dicebear.com/7.x/shapes/svg?seed=design",
+      "pinned": false,
+      "muted": false,
+      "archived": false,
+      "unreadCount": 0,
+      "members": [
+        { "id": "user_me_001", "name": "Alex", "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=alex", "role": "member" },
+        { "id": "user_carol_004", "name": "Carol White", "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=carol", "role": "owner" },
+        { "id": "user_grace_008", "name": "Grace Kim", "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=grace", "role": "admin" }
+      ],
+      "createdBy": "user_carol_004",
+      "messages": [
+        { "id": "msg_des_001", "type": "text", "content": "New wireframes are ready for review.", "senderId": "user_carol_004", "senderName": "Carol", "timestamp": 1720650000000, "reactions": [] },
+        { "id": "msg_des_002", "type": "text", "content": "The color palette looks perfect!", "senderId": "user_grace_008", "senderName": "Grace", "timestamp": 1720650060000, "reactions": [{ "emoji": "❤️", "count": 2, "userReacted": false }] },
+        { "id": "msg_des_003", "type": "text", "content": "I have some feedback on the navigation flow.", "senderId": "user_me_001", "senderName": "Alex", "timestamp": 1720650120000, "reactions": [] }
+      ],
+      "lastActivity": 1720650120000
+    },
+    {
+      "id": "chat_boss",
+      "type": "private",
+      "title": "Boss",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=boss",
+      "pinned": true,
+      "muted": false,
+      "archived": false,
+      "unreadCount": 1,
+      "messages": [
+        { "id": "msg_boss_001", "type": "text", "content": "Alex, I need the quarterly report by Friday.", "senderId": "user_boss_009", "senderName": "Boss", "timestamp": 1720850000000, "reactions": [] },
+        { "id": "msg_boss_002", "type": "text", "content": "Working on it, will have it ready.", "senderId": "user_me_001", "senderName": "Alex", "timestamp": 1720850060000, "reactions": [] },
+        { "id": "msg_boss_003", "type": "text", "content": "Also, are you available for a client call at 3 PM?", "senderId": "user_boss_009", "senderName": "Boss", "timestamp": 1720850120000, "reactions": [] }
+      ],
+      "lastActivity": 1720850120000
+    }
+  ],
+  "archivedChats": [],
+  "settings": {
+    "notifications": {
+      "messageAlert": true,
+      "sound": true,
+      "previewMessages": true
+    },
+    "privacy": {
+      "lastSeen": "contacts",
+      "profilePhoto": "everyone",
+      "phoneNumber": "nobody"
+    },
+    "appearance": {
+      "themeId": "light",
+      "fontSize": 16
+    },
+    "data": {
+      "autoDownloadPhotos": true,
+      "autoDownloadVideos": false
+    }
+  },
+  "search": {
+    "current": { "query": "", "results": [] },
+    "history": []
+  }
+}
