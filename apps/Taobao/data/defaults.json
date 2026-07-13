@@ -1,0 +1,285 @@
+{
+  "profile": {
+    "name": "小明",
+    "avatar": "",
+    "phone": "138****8888"
+  },
+  "settings": {
+    "theme": "light",
+    "notification": true
+  },
+  "products": {
+    "p1": { "id": "p1", "title": "Apple iPhone 15 Pro Max 256GB", "shopId": "s1", "categoryId": "c1", "brandId": "b1", "price": 8999, "originalPrice": 9999, "sales": 15234, "rating": 4.9, "reviewCount": 3280, "freeShipping": true, "description": "A17 Pro芯片，钛金属设计，4800万像素主摄，支持USB-C", "images": [], "skuIds": ["sku_p1_256_black", "sku_p1_256_white", "sku_p1_512_black", "sku_p1_512_white", "sku_p1_1tb_black"], "enabled": true },
+    "p2": { "id": "p2", "title": "华为Mate 60 Pro 512GB", "shopId": "s1", "categoryId": "c1", "brandId": "b2", "price": 6999, "originalPrice": 7999, "sales": 28341, "rating": 4.8, "reviewCount": 5620, "freeShipping": true, "description": "麒麟9000S芯片，卫星通话，XMAGE影像，HarmonyOS", "images": [], "skuIds": ["sku_p2_256_black", "sku_p2_512_black", "sku_p2_512_white"], "enabled": true },
+    "p3": { "id": "p3", "title": "Sony WH-1000XM5 无线降噪耳机", "shopId": "s2", "categoryId": "c1", "brandId": "b3", "price": 2299, "originalPrice": 2999, "sales": 8542, "rating": 4.9, "reviewCount": 12300, "freeShipping": true, "description": "行业领先降噪，30小时续航，舒适佩戴，高解析度音频", "images": [], "skuIds": ["sku_p3_black", "sku_p3_silver", "sku_p3_blue"], "enabled": true },
+    "p4": { "id": "p4", "title": "戴森V15 Detect无绳吸尘器", "shopId": "s2", "categoryId": "c2", "brandId": "b4", "price": 4990, "originalPrice": 5990, "sales": 4532, "rating": 4.7, "reviewCount": 2100, "freeShipping": false, "description": "激光探测微尘，LCD屏实时显示，60分钟续航", "images": [], "skuIds": ["sku_p4_standard"], "enabled": true },
+    "p5": { "id": "p5", "title": "耐克Air Jordan 1 Retro High OG", "shopId": "s3", "categoryId": "c3", "brandId": "b5", "price": 1299, "originalPrice": 1499, "sales": 21300, "rating": 4.8, "reviewCount": 8500, "freeShipping": true, "description": "经典复刻，优质皮革鞋面，Air-Sole缓震", "images": [], "skuIds": ["sku_p5_40", "sku_p5_41", "sku_p5_42", "sku_p5_43", "sku_p5_44"], "enabled": true },
+    "p6": { "id": "p6", "title": "Adidas Ultraboost 23 跑步鞋", "shopId": "s3", "categoryId": "c3", "brandId": "b6", "price": 899, "originalPrice": 1199, "sales": 16780, "rating": 4.7, "reviewCount": 4200, "freeShipping": true, "description": "BOOST中底科技，Primeknit+编织鞋面，Continental橡胶外底", "images": [], "skuIds": ["sku_p6_39", "sku_p6_40", "sku_p6_41", "sku_p6_42", "sku_p6_43"], "enabled": true },
+    "p7": { "id": "p7", "title": "兰蔻小黑瓶精华肌底液50ml", "shopId": "s4", "categoryId": "c4", "brandId": "b7", "price": 1100, "originalPrice": 1200, "sales": 32100, "rating": 4.9, "reviewCount": 15600, "freeShipping": true, "description": "第二代小黑瓶，微生态科技，修护肌肤屏障", "images": [], "skuIds": ["sku_p7_30ml", "sku_p7_50ml", "sku_p7_75ml"], "enabled": true },
+    "p8": { "id": "p8", "title": "雅诗兰黛小棕瓶精华露50ml", "shopId": "s4", "categoryId": "c4", "brandId": "b8", "price": 990, "originalPrice": 1100, "sales": 28500, "rating": 4.8, "reviewCount": 13200, "freeShipping": true, "description": "第七代小棕瓶，Chronolux Power Signal科技，修护紧致", "images": [], "skuIds": ["sku_p8_30ml", "sku_p8_50ml", "sku_p8_75ml"], "enabled": true },
+    "p9": { "id": "p9", "title": "茅台飞天53度500ml", "shopId": "s5", "categoryId": "c5", "brandId": "b9", "price": 1499, "originalPrice": 1499, "sales": 8900, "rating": 5.0, "reviewCount": 6700, "freeShipping": false, "description": "酱香型白酒，传统12987工艺酿造，国酒经典", "images": [], "skuIds": ["sku_p9_500ml"], "enabled": true },
+    "p10": { "id": "p10", "title": "三只松鼠坚果大礼包1568g", "shopId": "s5", "categoryId": "c5", "brandId": "b10", "price": 99, "originalPrice": 169, "sales": 156000, "rating": 4.6, "reviewCount": 45200, "freeShipping": true, "description": "每日坚果混合装，8种坚果果干，年货送礼必备", "images": [], "skuIds": ["sku_p10_standard"], "enabled": true },
+    "p11": { "id": "p11", "title": "三只松鼠蜀香牛肉干500g", "shopId": "s5", "categoryId": "c5", "brandId": "b10", "price": 49, "originalPrice": 79, "sales": 98000, "rating": 4.5, "reviewCount": 32100, "freeShipping": false, "description": "四川风味牛肉干，麻辣鲜香，独立包装", "images": [], "skuIds": ["sku_p11_standard"], "enabled": true },
+    "p12": { "id": "p12", "title": "《三体》全套三册 刘慈欣著", "shopId": "s6", "categoryId": "c6", "brandId": "b11", "price": 68, "originalPrice": 93, "sales": 234000, "rating": 4.9, "reviewCount": 89200, "freeShipping": true, "description": "雨果奖获奖作品，中国科幻文学里程碑", "images": [], "skuIds": ["sku_p12_paperback", "sku_p12_hardcover"], "enabled": true },
+    "p14": { "id": "p14", "title": "小米14 Pro 256GB", "shopId": "s1", "categoryId": "c1", "brandId": "b12", "price": 4999, "originalPrice": 5299, "sales": 32100, "rating": 4.8, "reviewCount": 7800, "freeShipping": true, "description": "骁龙8 Gen3，徕卡光学镜头，120W秒充", "images": [], "skuIds": ["sku_p14_256_black", "sku_p14_256_white", "sku_p14_512_black"], "enabled": true },
+    "p15": { "id": "p15", "title": "华为FreeBuds Pro 3 真无线耳机", "shopId": "s1", "categoryId": "c1", "brandId": "b2", "price": 1199, "originalPrice": 1399, "sales": 18900, "rating": 4.7, "reviewCount": 5600, "freeShipping": true, "description": "智慧动态降噪3.0，空间音频2.0，星闪连接", "images": [], "skuIds": ["sku_p15_white", "sku_p15_black", "sku_p15_green"], "enabled": true },
+    "p16": { "id": "p16", "title": "松下电饭煲SR-HQ153 4L", "shopId": "s2", "categoryId": "c2", "brandId": "b13", "price": 799, "originalPrice": 999, "sales": 12300, "rating": 4.6, "reviewCount": 3400, "freeShipping": false, "description": "IH电磁加热，24小时预约，4L容量适合3-5人家庭", "images": [], "skuIds": ["sku_p16_3l", "sku_p16_4l", "sku_p16_5l"], "enabled": true },
+    "p17": { "id": "p17", "title": "戴森AM09冷暖风扇", "shopId": "s2", "categoryId": "c2", "brandId": "b4", "price": 3390, "originalPrice": 3990, "sales": 5600, "rating": 4.8, "reviewCount": 2300, "freeShipping": true, "description": "Air Multiplier技术，冷暖两用，远程遥控", "images": [], "skuIds": ["sku_p17_white", "sku_p17_black"], "enabled": true },
+    "p18": { "id": "p18", "title": "优衣库轻薄羽绒服男款", "shopId": "s3", "categoryId": "c3", "brandId": "b14", "price": 499, "originalPrice": 799, "sales": 43500, "rating": 4.6, "reviewCount": 12500, "freeShipping": true, "description": "90%白鸭绒填充，轻盈保暖，便携收纳", "images": [], "skuIds": ["sku_p18_m", "sku_p18_l", "sku_p18_xl", "sku_p18_xxl"], "enabled": true },
+    "p19": { "id": "p19", "title": "SK-II神仙水230ml", "shopId": "s4", "categoryId": "c4", "brandId": "b15", "price": 1370, "originalPrice": 1590, "sales": 25600, "rating": 4.9, "reviewCount": 18900, "freeShipping": true, "description": "PITERA精华，调理肤质，晶莹剔透", "images": [], "skuIds": ["sku_p19_75ml", "sku_p19_160ml", "sku_p19_230ml"], "enabled": true },
+    "p20": { "id": "p20", "title": "美的电热水器F60-32DQ 60L", "shopId": "s2", "categoryId": "c2", "brandId": "b16", "price": 1299, "originalPrice": 1599, "sales": 8900, "rating": 4.5, "reviewCount": 2100, "freeShipping": false, "description": "3200W速热，60L大容量，搪瓷内胆，一级能效", "images": [], "skuIds": ["sku_p20_50l", "sku_p20_60l", "sku_p20_80l"], "enabled": true },
+    "p21": { "id": "p21", "title": "《人类简史》尤瓦尔·赫拉利著", "shopId": "s6", "categoryId": "c6", "brandId": "b11", "price": 45, "originalPrice": 68, "sales": 189000, "rating": 4.8, "reviewCount": 56700, "freeShipping": true, "description": "从动物到上帝，重新理解人类文明", "images": [], "skuIds": ["sku_p21_paperback"], "enabled": true },
+    "p22": { "id": "p22", "title": "Keep瑜伽垫加厚防滑NBR", "shopId": "s3", "categoryId": "c7", "brandId": "b17", "price": 89, "originalPrice": 129, "sales": 67200, "rating": 4.5, "reviewCount": 18900, "freeShipping": true, "description": "NBR材质，10mm加厚，双面防滑纹理，含收纳绑带", "images": [], "skuIds": ["sku_p22_standard"], "enabled": true },
+    "p23": { "id": "p23", "title": "迪卡侬登山背包MH500 40L", "shopId": "s3", "categoryId": "c7", "brandId": "b18", "price": 299, "originalPrice": 399, "sales": 12300, "rating": 4.6, "reviewCount": 3400, "freeShipping": true, "description": "40L大容量，透气背负系统，防泼水，多口袋设计", "images": [], "skuIds": ["sku_p23_30l", "sku_p23_40l", "sku_p23_50l"], "enabled": true },
+    "p24": { "id": "p24", "title": "新秀丽拉杆箱24寸PC材质", "shopId": "s3", "categoryId": "c8", "brandId": "b19", "price": 899, "originalPrice": 1299, "sales": 7800, "rating": 4.7, "reviewCount": 2300, "freeShipping": false, "description": "PC材质轻韧抗压，TSA海关锁，万向静音轮，24寸", "images": [], "skuIds": ["sku_p24_20inch", "sku_p24_24inch", "sku_p24_28inch"], "enabled": true },
+    "p13": { "id": "p13", "title": "《平凡的世界》全套三册 路遥著", "shopId": "s6", "categoryId": "c6", "brandId": "b11", "price": 78, "originalPrice": 108, "sales": 156000, "rating": 4.9, "reviewCount": 67800, "freeShipping": true, "description": "茅盾文学奖作品，中国当代文学经典", "images": [], "skuIds": ["sku_p13_paperback"], "enabled": true }
+  },
+  "skus": {
+    "sku_p1_256_black": { "id": "sku_p1_256_black", "productId": "p1", "attributes": { "容量": "256GB", "颜色": "黑色" }, "price": 8999, "originalPrice": 9999, "stock": 50, "enabled": true },
+    "sku_p1_256_white": { "id": "sku_p1_256_white", "productId": "p1", "attributes": { "容量": "256GB", "颜色": "白色" }, "price": 8999, "originalPrice": 9999, "stock": 35, "enabled": true },
+    "sku_p1_512_black": { "id": "sku_p1_512_black", "productId": "p1", "attributes": { "容量": "512GB", "颜色": "黑色" }, "price": 10499, "originalPrice": 11499, "stock": 20, "enabled": true },
+    "sku_p1_512_white": { "id": "sku_p1_512_white", "productId": "p1", "attributes": { "容量": "512GB", "颜色": "白色" }, "price": 10499, "originalPrice": 11499, "stock": 15, "enabled": true },
+    "sku_p1_1tb_black": { "id": "sku_p1_1tb_black", "productId": "p1", "attributes": { "容量": "1TB", "颜色": "黑色" }, "price": 12499, "originalPrice": 13499, "stock": 8, "enabled": true },
+    "sku_p2_256_black": { "id": "sku_p2_256_black", "productId": "p2", "attributes": { "容量": "256GB", "颜色": "黑色" }, "price": 5999, "originalPrice": 6999, "stock": 40, "enabled": true },
+    "sku_p2_512_black": { "id": "sku_p2_512_black", "productId": "p2", "attributes": { "容量": "512GB", "颜色": "黑色" }, "price": 6999, "originalPrice": 7999, "stock": 25, "enabled": true },
+    "sku_p2_512_white": { "id": "sku_p2_512_white", "productId": "p2", "attributes": { "容量": "512GB", "颜色": "白色" }, "price": 6999, "originalPrice": 7999, "stock": 18, "enabled": true },
+    "sku_p3_black": { "id": "sku_p3_black", "productId": "p3", "attributes": { "颜色": "黑色" }, "price": 2299, "originalPrice": 2999, "stock": 60, "enabled": true },
+    "sku_p3_silver": { "id": "sku_p3_silver", "productId": "p3", "attributes": { "颜色": "银色" }, "price": 2299, "originalPrice": 2999, "stock": 45, "enabled": true },
+    "sku_p3_blue": { "id": "sku_p3_blue", "productId": "p3", "attributes": { "颜色": "蓝色" }, "price": 2399, "originalPrice": 3099, "stock": 30, "enabled": true },
+    "sku_p4_standard": { "id": "sku_p4_standard", "productId": "p4", "attributes": {}, "price": 4990, "originalPrice": 5990, "stock": 12, "enabled": true },
+    "sku_p5_40": { "id": "sku_p5_40", "productId": "p5", "attributes": { "鞋码": "40" }, "price": 1299, "originalPrice": 1499, "stock": 15, "enabled": true },
+    "sku_p5_41": { "id": "sku_p5_41", "productId": "p5", "attributes": { "鞋码": "41" }, "price": 1299, "originalPrice": 1499, "stock": 20, "enabled": true },
+    "sku_p5_42": { "id": "sku_p5_42", "productId": "p5", "attributes": { "鞋码": "42" }, "price": 1299, "originalPrice": 1499, "stock": 25, "enabled": true },
+    "sku_p5_43": { "id": "sku_p5_43", "productId": "p5", "attributes": { "鞋码": "43" }, "price": 1399, "originalPrice": 1599, "stock": 18, "enabled": true },
+    "sku_p5_44": { "id": "sku_p5_44", "productId": "p5", "attributes": { "鞋码": "44" }, "price": 1399, "originalPrice": 1599, "stock": 10, "enabled": true },
+    "sku_p6_39": { "id": "sku_p6_39", "productId": "p6", "attributes": { "鞋码": "39" }, "price": 799, "originalPrice": 1099, "stock": 12, "enabled": true },
+    "sku_p6_40": { "id": "sku_p6_40", "productId": "p6", "attributes": { "鞋码": "40" }, "price": 899, "originalPrice": 1199, "stock": 20, "enabled": true },
+    "sku_p6_41": { "id": "sku_p6_41", "productId": "p6", "attributes": { "鞋码": "41" }, "price": 899, "originalPrice": 1199, "stock": 25, "enabled": true },
+    "sku_p6_42": { "id": "sku_p6_42", "productId": "p6", "attributes": { "鞋码": "42" }, "price": 899, "originalPrice": 1199, "stock": 18, "enabled": true },
+    "sku_p6_43": { "id": "sku_p6_43", "productId": "p6", "attributes": { "鞋码": "43" }, "price": 899, "originalPrice": 1199, "stock": 14, "enabled": true },
+    "sku_p7_30ml": { "id": "sku_p7_30ml", "productId": "p7", "attributes": { "容量": "30ml" }, "price": 760, "originalPrice": 850, "stock": 40, "enabled": true },
+    "sku_p7_50ml": { "id": "sku_p7_50ml", "productId": "p7", "attributes": { "容量": "50ml" }, "price": 1100, "originalPrice": 1200, "stock": 50, "enabled": true },
+    "sku_p7_75ml": { "id": "sku_p7_75ml", "productId": "p7", "attributes": { "容量": "75ml" }, "price": 1480, "originalPrice": 1650, "stock": 20, "enabled": true },
+    "sku_p8_30ml": { "id": "sku_p8_30ml", "productId": "p8", "attributes": { "容量": "30ml" }, "price": 640, "originalPrice": 720, "stock": 35, "enabled": true },
+    "sku_p8_50ml": { "id": "sku_p8_50ml", "productId": "p8", "attributes": { "容量": "50ml" }, "price": 990, "originalPrice": 1100, "stock": 45, "enabled": true },
+    "sku_p8_75ml": { "id": "sku_p8_75ml", "productId": "p8", "attributes": { "容量": "75ml" }, "price": 1350, "originalPrice": 1550, "stock": 15, "enabled": true },
+    "sku_p9_500ml": { "id": "sku_p9_500ml", "productId": "p9", "attributes": {}, "price": 1499, "originalPrice": 1499, "stock": 5, "enabled": true },
+    "sku_p10_standard": { "id": "sku_p10_standard", "productId": "p10", "attributes": {}, "price": 99, "originalPrice": 169, "stock": 200, "enabled": true },
+    "sku_p11_standard": { "id": "sku_p11_standard", "productId": "p11", "attributes": {}, "price": 49, "originalPrice": 79, "stock": 150, "enabled": true },
+    "sku_p12_paperback": { "id": "sku_p12_paperback", "productId": "p12", "attributes": { "版本": "平装" }, "price": 68, "originalPrice": 93, "stock": 80, "enabled": true },
+    "sku_p12_hardcover": { "id": "sku_p12_hardcover", "productId": "p12", "attributes": { "版本": "精装" }, "price": 128, "originalPrice": 168, "stock": 30, "enabled": true },
+    "sku_p13_paperback": { "id": "sku_p13_paperback", "productId": "p13", "attributes": {}, "price": 78, "originalPrice": 108, "stock": 60, "enabled": true },
+    "sku_p14_256_black": { "id": "sku_p14_256_black", "productId": "p14", "attributes": { "容量": "256GB", "颜色": "黑色" }, "price": 4999, "originalPrice": 5299, "stock": 40, "enabled": true },
+    "sku_p14_256_white": { "id": "sku_p14_256_white", "productId": "p14", "attributes": { "容量": "256GB", "颜色": "白色" }, "price": 4999, "originalPrice": 5299, "stock": 30, "enabled": true },
+    "sku_p14_512_black": { "id": "sku_p14_512_black", "productId": "p14", "attributes": { "容量": "512GB", "颜色": "黑色" }, "price": 5699, "originalPrice": 5999, "stock": 20, "enabled": true },
+    "sku_p15_white": { "id": "sku_p15_white", "productId": "p15", "attributes": { "颜色": "白色" }, "price": 1199, "originalPrice": 1399, "stock": 45, "enabled": true },
+    "sku_p15_black": { "id": "sku_p15_black", "productId": "p15", "attributes": { "颜色": "黑色" }, "price": 1199, "originalPrice": 1399, "stock": 50, "enabled": true },
+    "sku_p15_green": { "id": "sku_p15_green", "productId": "p15", "attributes": { "颜色": "绿色" }, "price": 1249, "originalPrice": 1449, "stock": 20, "enabled": true },
+    "sku_p16_3l": { "id": "sku_p16_3l", "productId": "p16", "attributes": { "容量": "3L" }, "price": 649, "originalPrice": 849, "stock": 25, "enabled": true },
+    "sku_p16_4l": { "id": "sku_p16_4l", "productId": "p16", "attributes": { "容量": "4L" }, "price": 799, "originalPrice": 999, "stock": 30, "enabled": true },
+    "sku_p16_5l": { "id": "sku_p16_5l", "productId": "p16", "attributes": { "容量": "5L" }, "price": 999, "originalPrice": 1199, "stock": 15, "enabled": true },
+    "sku_p17_white": { "id": "sku_p17_white", "productId": "p17", "attributes": { "颜色": "白色" }, "price": 3390, "originalPrice": 3990, "stock": 12, "enabled": true },
+    "sku_p17_black": { "id": "sku_p17_black", "productId": "p17", "attributes": { "颜色": "黑色" }, "price": 3390, "originalPrice": 3990, "stock": 10, "enabled": true },
+    "sku_p18_m": { "id": "sku_p18_m", "productId": "p18", "attributes": { "尺码": "M" }, "price": 499, "originalPrice": 799, "stock": 40, "enabled": true },
+    "sku_p18_l": { "id": "sku_p18_l", "productId": "p18", "attributes": { "尺码": "L" }, "price": 499, "originalPrice": 799, "stock": 50, "enabled": true },
+    "sku_p18_xl": { "id": "sku_p18_xl", "productId": "p18", "attributes": { "尺码": "XL" }, "price": 499, "originalPrice": 799, "stock": 35, "enabled": true },
+    "sku_p18_xxl": { "id": "sku_p18_xxl", "productId": "p18", "attributes": { "尺码": "XXL" }, "price": 549, "originalPrice": 849, "stock": 20, "enabled": true },
+    "sku_p19_75ml": { "id": "sku_p19_75ml", "productId": "p19", "attributes": { "容量": "75ml" }, "price": 690, "originalPrice": 790, "stock": 25, "enabled": true },
+    "sku_p19_160ml": { "id": "sku_p19_160ml", "productId": "p19", "attributes": { "容量": "160ml" }, "price": 1050, "originalPrice": 1200, "stock": 20, "enabled": true },
+    "sku_p19_230ml": { "id": "sku_p19_230ml", "productId": "p19", "attributes": { "容量": "230ml" }, "price": 1370, "originalPrice": 1590, "stock": 30, "enabled": true },
+    "sku_p20_50l": { "id": "sku_p20_50l", "productId": "p20", "attributes": { "容量": "50L" }, "price": 1099, "originalPrice": 1399, "stock": 10, "enabled": true },
+    "sku_p20_60l": { "id": "sku_p20_60l", "productId": "p20", "attributes": { "容量": "60L" }, "price": 1299, "originalPrice": 1599, "stock": 15, "enabled": true },
+    "sku_p20_80l": { "id": "sku_p20_80l", "productId": "p20", "attributes": { "容量": "80L" }, "price": 1599, "originalPrice": 1899, "stock": 8, "enabled": true },
+    "sku_p21_paperback": { "id": "sku_p21_paperback", "productId": "p21", "attributes": {}, "price": 45, "originalPrice": 68, "stock": 100, "enabled": true },
+    "sku_p22_standard": { "id": "sku_p22_standard", "productId": "p22", "attributes": {}, "price": 89, "originalPrice": 129, "stock": 200, "enabled": true },
+    "sku_p23_30l": { "id": "sku_p23_30l", "productId": "p23", "attributes": { "容量": "30L" }, "price": 249, "originalPrice": 329, "stock": 20, "enabled": true },
+    "sku_p23_40l": { "id": "sku_p23_40l", "productId": "p23", "attributes": { "容量": "40L" }, "price": 299, "originalPrice": 399, "stock": 25, "enabled": true },
+    "sku_p23_50l": { "id": "sku_p23_50l", "productId": "p23", "attributes": { "容量": "50L" }, "price": 349, "originalPrice": 449, "stock": 15, "enabled": true },
+    "sku_p24_20inch": { "id": "sku_p24_20inch", "productId": "p24", "attributes": { "尺寸": "20寸" }, "price": 699, "originalPrice": 999, "stock": 20, "enabled": true },
+    "sku_p24_24inch": { "id": "sku_p24_24inch", "productId": "p24", "attributes": { "尺寸": "24寸" }, "price": 899, "originalPrice": 1299, "stock": 18, "enabled": true },
+    "sku_p24_28inch": { "id": "sku_p24_28inch", "productId": "p24", "attributes": { "尺寸": "28寸" }, "price": 1099, "originalPrice": 1499, "stock": 10, "enabled": true }
+  },
+  "categories": {
+    "c1": { "id": "c1", "name": "手机数码", "icon": "IcSmartphone", "productIds": ["p1", "p2", "p14", "p15", "p3"] },
+    "c2": { "id": "c2", "name": "家用电器", "icon": "IcTv", "productIds": ["p4", "p16", "p17", "p20"] },
+    "c3": { "id": "c3", "name": "服饰鞋包", "icon": "IcShirt", "productIds": ["p5", "p6", "p18", "p24"] },
+    "c4": { "id": "c4", "name": "美妆护肤", "icon": "IcSparkles", "productIds": ["p7", "p8", "p19"] },
+    "c5": { "id": "c5", "name": "食品酒水", "icon": "IcWine", "productIds": ["p9", "p10", "p11"] },
+    "c6": { "id": "c6", "name": "图书文娱", "icon": "IcBook", "productIds": ["p12", "p13", "p21"] },
+    "c7": { "id": "c7", "name": "运动户外", "icon": "IcDumbbell", "productIds": ["p22", "p23"] },
+    "c8": { "id": "c8", "name": "箱包配饰", "icon": "IcBackpack", "productIds": ["p24"] }
+  },
+  "brands": {
+    "b1": { "id": "b1", "name": "Apple" },
+    "b2": { "id": "b2", "name": "华为" },
+    "b3": { "id": "b3", "name": "Sony" },
+    "b4": { "id": "b4", "name": "戴森" },
+    "b5": { "id": "b5", "name": "Nike" },
+    "b6": { "id": "b6", "name": "Adidas" },
+    "b7": { "id": "b7", "name": "兰蔻" },
+    "b8": { "id": "b8", "name": "雅诗兰黛" },
+    "b9": { "id": "b9", "name": "茅台" },
+    "b10": { "id": "b10", "name": "三只松鼠" },
+    "b11": { "id": "b11", "name": "中信出版" },
+    "b12": { "id": "b12", "name": "小米" },
+    "b13": { "id": "b13", "name": "松下" },
+    "b14": { "id": "b14", "name": "优衣库" },
+    "b15": { "id": "b15", "name": "SK-II" },
+    "b16": { "id": "b16", "name": "美的" },
+    "b17": { "id": "b17", "name": "Keep" },
+    "b18": { "id": "b18", "name": "迪卡侬" },
+    "b19": { "id": "b19", "name": "新秀丽" }
+  },
+  "shops": {
+    "s1": { "id": "s1", "name": "数码旗舰店", "rating": 4.8, "productIds": ["p1", "p2", "p14", "p15"], "description": "专业数码产品旗舰店，正品保障" },
+    "s2": { "id": "s2", "name": "家电生活馆", "rating": 4.6, "productIds": ["p3", "p4", "p16", "p17", "p20"], "description": "品质家电，让生活更美好" },
+    "s3": { "id": "s3", "name": "潮流运动馆", "rating": 4.7, "productIds": ["p5", "p6", "p18", "p22", "p23", "p24"], "description": "运动潮流装备集合店" },
+    "s4": { "id": "s4", "name": "美妆护肤旗舰", "rating": 4.9, "productIds": ["p7", "p8", "p19"], "description": "国际大牌美妆，正品低价" },
+    "s5": { "id": "s5", "name": "食品百货超市", "rating": 4.5, "productIds": ["p9", "p10", "p11"], "description": "精选好食，品质生活" },
+    "s6": { "id": "s6", "name": "文轩书店", "rating": 4.9, "productIds": ["p12", "p13", "p21"], "description": "好书相伴，智慧人生" }
+  },
+  "cart": [
+    { "id": "cart_1", "productId": "p10", "skuId": "sku_p10_standard", "quantity": 2, "selected": true, "addedAt": -86400000, "unitPrice": 99 },
+    { "id": "cart_2", "productId": "p7", "skuId": "sku_p7_50ml", "quantity": 1, "selected": true, "addedAt": -172800000, "unitPrice": 1100 },
+    { "id": "cart_3", "productId": "p6", "skuId": "sku_p6_42", "quantity": 1, "selected": false, "addedAt": -259200000, "unitPrice": 899 },
+    { "id": "cart_4", "productId": "p12", "skuId": "sku_p12_paperback", "quantity": 1, "selected": true, "addedAt": -345600000, "unitPrice": 68 }
+  ],
+  "coupons": {
+    "cou_platform_10": { "id": "cou_platform_10", "name": "平台满200减10", "type": "platform", "threshold": 200, "discount": 10, "description": "全场通用，满200元减10元", "validFrom": -8640000000, "validTo": 8640000000, "enabled": true },
+    "cou_platform_50": { "id": "cou_platform_50", "name": "平台满500减50", "type": "platform", "threshold": 500, "discount": 50, "description": "全场通用，满500元减50元", "validFrom": -8640000000, "validTo": 8640000000, "enabled": true },
+    "cou_platform_100": { "id": "cou_platform_100", "name": "平台满1000减100", "type": "platform", "threshold": 1000, "discount": 100, "description": "全场通用，满1000元减100元", "validFrom": -8640000000, "validTo": 8640000000, "enabled": true },
+    "cou_shop_s1_30": { "id": "cou_shop_s1_30", "name": "数码旗舰满2000减30", "type": "shop", "shopId": "s1", "threshold": 2000, "discount": 30, "description": "数码旗舰店专属，满2000减30", "validFrom": -8640000000, "validTo": 8640000000, "enabled": true },
+    "cou_shop_s4_20": { "id": "cou_shop_s4_20", "name": "美妆护肤满300减20", "type": "shop", "shopId": "s4", "threshold": 300, "discount": 20, "description": "美妆护肤旗舰专属，满300减20", "validFrom": -8640000000, "validTo": 8640000000, "enabled": true }
+  },
+  "userCoupons": [
+    { "couponId": "cou_platform_10", "claimedAt": -864000000, "used": false },
+    { "couponId": "cou_platform_100", "claimedAt": -1728000000, "used": false }
+  ],
+  "addresses": [
+    { "id": "addr_1", "name": "张三", "phone": "13800001111", "province": "浙江省", "city": "杭州市", "district": "余杭区", "detail": "文一西路969号阿里巴巴西溪园区", "isDefault": true },
+    { "id": "addr_2", "name": "李四", "phone": "13900002222", "province": "北京市", "city": "北京市", "district": "朝阳区", "detail": "望京SOHO T1 15层", "isDefault": false },
+    { "id": "addr_3", "name": "王五", "phone": "13700003333", "province": "广东省", "city": "深圳市", "district": "南山区", "detail": "科技园南路深圳湾科技生态园10栋", "isDefault": false }
+  ],
+  "orders": [
+    {
+      "id": "order_1", "items": [
+        { "id": "oi_1_1", "productId": "p1", "skuId": "sku_p1_256_black", "skuAttributes": { "容量": "256GB", "颜色": "黑色" }, "productTitle": "Apple iPhone 15 Pro Max 256GB", "shopId": "s1", "quantity": 1, "unitPrice": 8999, "refundStatus": "none" }
+      ],
+      "addressSnapshot": { "id": "addr_1", "name": "张三", "phone": "13800001111", "province": "浙江省", "city": "杭州市", "district": "余杭区", "detail": "文一西路969号阿里巴巴西溪园区", "isDefault": true },
+      "couponSnapshot": { "couponId": "cou_platform_100", "discount": 100 },
+      "shippingMethod": "standard", "shippingFee": 0, "subtotal": 8999, "discount": 100, "payable": 8899,
+      "status": "received", "createdAt": -1209600000, "paidAt": -1209500000, "shippedAt": -1209000000, "deliveredAt": -1206000000, "receivedAt": -1200000000,
+      "logisticsId": "log_1"
+    },
+    {
+      "id": "order_2", "items": [
+        { "id": "oi_2_1", "productId": "p7", "skuId": "sku_p7_50ml", "skuAttributes": { "容量": "50ml" }, "productTitle": "兰蔻小黑瓶精华肌底液50ml", "shopId": "s4", "quantity": 1, "unitPrice": 1100, "refundStatus": "none" },
+        { "id": "oi_2_2", "productId": "p8", "skuId": "sku_p8_50ml", "skuAttributes": { "容量": "50ml" }, "productTitle": "雅诗兰黛小棕瓶精华露50ml", "shopId": "s4", "quantity": 1, "unitPrice": 990, "refundStatus": "none" }
+      ],
+      "addressSnapshot": { "id": "addr_1", "name": "张三", "phone": "13800001111", "province": "浙江省", "city": "杭州市", "district": "余杭区", "detail": "文一西路969号阿里巴巴西溪园区", "isDefault": true },
+      "couponSnapshot": null,
+      "shippingMethod": "standard", "shippingFee": 0, "subtotal": 2090, "discount": 0, "payable": 2090,
+      "status": "delivered", "createdAt": -864000000, "paidAt": -863900000, "shippedAt": -863000000, "deliveredAt": -600000000,
+      "logisticsId": "log_2"
+    },
+    {
+      "id": "order_3", "items": [
+        { "id": "oi_3_1", "productId": "p5", "skuId": "sku_p5_42", "skuAttributes": { "鞋码": "42" }, "productTitle": "耐克Air Jordan 1 Retro High OG", "shopId": "s3", "quantity": 1, "unitPrice": 1299, "refundStatus": "none" }
+      ],
+      "addressSnapshot": { "id": "addr_2", "name": "李四", "phone": "13900002222", "province": "北京市", "city": "北京市", "district": "朝阳区", "detail": "望京SOHO T1 15层", "isDefault": false },
+      "couponSnapshot": null,
+      "shippingMethod": "standard", "shippingFee": 0, "subtotal": 1299, "discount": 0, "payable": 1299,
+      "status": "to_ship", "createdAt": -432000000, "paidAt": -431900000,
+      "logisticsId": null
+    },
+    {
+      "id": "order_4", "items": [
+        { "id": "oi_4_1", "productId": "p3", "skuId": "sku_p3_black", "skuAttributes": { "颜色": "黑色" }, "productTitle": "Sony WH-1000XM5 无线降噪耳机", "shopId": "s2", "quantity": 1, "unitPrice": 2299, "refundStatus": "none" }
+      ],
+      "addressSnapshot": { "id": "addr_1", "name": "张三", "phone": "13800001111", "province": "浙江省", "city": "杭州市", "district": "余杭区", "detail": "文一西路969号阿里巴巴西溪园区", "isDefault": true },
+      "couponSnapshot": null,
+      "shippingMethod": "standard", "shippingFee": 0, "subtotal": 2299, "discount": 0, "payable": 2299,
+      "status": "shipped", "createdAt": -259200000, "paidAt": -259100000, "shippedAt": -250000000,
+      "logisticsId": "log_3"
+    },
+    {
+      "id": "order_5", "items": [
+        { "id": "oi_5_1", "productId": "p10", "skuId": "sku_p10_standard", "skuAttributes": {}, "productTitle": "三只松鼠坚果大礼包1568g", "shopId": "s5", "quantity": 2, "unitPrice": 99, "refundStatus": "none" }
+      ],
+      "addressSnapshot": { "id": "addr_3", "name": "王五", "phone": "13700003333", "province": "广东省", "city": "深圳市", "district": "南山区", "detail": "科技园南路深圳湾科技生态园10栋", "isDefault": false },
+      "couponSnapshot": { "couponId": "cou_platform_10", "discount": 10 },
+      "shippingMethod": "standard", "shippingFee": 0, "subtotal": 198, "discount": 10, "payable": 188,
+      "status": "pending_payment", "createdAt": -86400000, "logisticsId": null
+    },
+    {
+      "id": "order_6", "items": [
+        { "id": "oi_6_1", "productId": "p4", "skuId": "sku_p4_standard", "skuAttributes": {}, "productTitle": "戴森V15 Detect无绳吸尘器", "shopId": "s2", "quantity": 1, "unitPrice": 4990, "refundStatus": "none" }
+      ],
+      "addressSnapshot": { "id": "addr_1", "name": "张三", "phone": "13800001111", "province": "浙江省", "city": "杭州市", "district": "余杭区", "detail": "文一西路969号阿里巴巴西溪园区", "isDefault": true },
+      "couponSnapshot": null,
+      "shippingMethod": "standard", "shippingFee": 0, "subtotal": 4990, "discount": 0, "payable": 4990,
+      "status": "shipped", "createdAt": -172800000, "paidAt": -172700000, "shippedAt": -170000000,
+      "logisticsId": "log_4"
+    }
+  ],
+  "logistics": {
+    "log_1": {
+      "id": "log_1", "orderId": "order_1", "carrier": "顺丰速运", "trackingNumber": "SF1234567890",
+      "events": [
+        { "time": -1209000000, "location": "深圳集散中心", "description": "快件已发车" },
+        { "time": -1208000000, "location": "广州中转部", "description": "快件到达广州中转部" },
+        { "time": -1207000000, "location": "杭州中转部", "description": "快件到达杭州中转部" },
+        { "time": -1206000000, "location": "杭州余杭区", "description": "快件已签收，签收人：本人签收" }
+      ],
+      "estimatedDelivery": -1206000000, "status": "delivered"
+    },
+    "log_2": {
+      "id": "log_2", "orderId": "order_2", "carrier": "中通快递", "trackingNumber": "ZT9876543210",
+      "events": [
+        { "time": -863000000, "location": "上海分拨中心", "description": "快件已发出" },
+        { "time": -780000000, "location": "杭州中转部", "description": "快件到达杭州中转部" },
+        { "time": -700000000, "location": "杭州余杭区", "description": "快件正在派送中，快递员：张师傅 138****1234" },
+        { "time": -600000000, "location": "杭州余杭区", "description": "快件已送达，签收人：前台代收" }
+      ],
+      "estimatedDelivery": -600000000, "status": "delivered"
+    },
+    "log_3": {
+      "id": "log_3", "orderId": "order_4", "carrier": "圆通速递", "trackingNumber": "YT1122334455",
+      "events": [
+        { "time": -250000000, "location": "北京分拨中心", "description": "快件已揽收" },
+        { "time": -200000000, "location": "北京中转部", "description": "快件到达北京中转部" }
+      ],
+      "estimatedDelivery": 86400000, "status": "in_transit"
+    },
+    "log_4": {
+      "id": "log_4", "orderId": "order_6", "carrier": "京东物流", "trackingNumber": "JD9988776655",
+      "events": [
+        { "time": -170000000, "location": "上海仓库", "description": "快件已出库" },
+        { "time": -150000000, "location": "上海分拣中心", "description": "快件到达分拣中心" }
+      ],
+      "estimatedDelivery": 172800000, "status": "in_transit"
+    }
+  },
+  "refundRequests": [],
+  "reviews": [
+    { "id": "rev_1", "orderId": "order_1", "orderItemId": "oi_1_1", "productId": "p1", "skuId": "sku_p1_256_black", "rating": 5, "content": "手机很好用，钛金属手感很棒，拍照效果出色！", "tags": ["质量好", "颜值高", "物流快"], "createdAt": -1100000000 },
+    { "id": "rev_2", "orderId": "order_1", "orderItemId": "oi_1_1", "productId": "p1", "skuId": "sku_p1_256_black", "rating": 4, "content": "总体不错，就是有点贵", "tags": ["性价比一般"], "createdAt": -1000000000 },
+    { "id": "rev_3", "orderId": "order_1", "orderItemId": "oi_1_1", "productId": "p7", "skuId": "sku_p7_50ml", "rating": 5, "content": "小黑瓶真的很好用，皮肤明显变细腻了", "tags": ["效果好", "吸收快"], "createdAt": -900000000 },
+    { "id": "rev_4", "orderId": "order_1", "orderItemId": "oi_1_1", "productId": "p8", "skuId": "sku_p8_50ml", "rating": 5, "content": "小棕瓶修复效果一流，持续回购中", "tags": ["修复好", "滋润"], "createdAt": -800000000 },
+    { "id": "rev_5", "orderId": "order_1", "orderItemId": "oi_1_1", "productId": "p5", "skuId": "sku_p5_42", "rating": 5, "content": "经典AJ1，脚感舒适，百搭款", "tags": ["颜值高", "舒适"], "createdAt": -700000000 },
+    { "id": "rev_6", "orderId": "order_1", "orderItemId": "oi_1_1", "productId": "p3", "skuId": "sku_p3_black", "rating": 5, "content": "降噪效果确实好，戴着很舒服，续航也够用", "tags": ["降噪好", "续航长"], "createdAt": -600000000 },
+    { "id": "rev_7", "orderId": "order_1", "orderItemId": "oi_1_1", "productId": "p10", "skuId": "sku_p10_standard", "rating": 4, "content": "坚果种类丰富，包装精美，送礼不错", "tags": ["包装好", "种类多"], "createdAt": -500000000 },
+    { "id": "rev_8", "orderId": "order_1", "orderItemId": "oi_1_1", "productId": "p12", "skuId": "sku_p12_paperback", "rating": 5, "content": "三体真的太精彩了，一口气读完！", "tags": ["内容精彩", "印刷好"], "createdAt": -400000000 }
+  ],
+  "favoriteIds": ["p3", "p7", "p12", "p19"],
+  "search": {
+    "current": {
+      "query": "", "sortOption": "comprehensive", "categoryId": null, "brandId": null,
+      "priceMin": "", "priceMax": "", "freeShippingOnly": false, "shopId": null, "minRating": "", "resultsCount": 0
+    },
+    "history": [],
+    "openedProductIds": []
+  },
+  "recentlyViewed": ["p1", "p7", "p3"],
+  "openedProductIds": []
+}
