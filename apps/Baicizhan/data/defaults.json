@@ -1,0 +1,151 @@
+{
+  "wordBooks": {
+    "basic": {
+      "id": "basic",
+      "name": "基础词汇",
+      "nameEn": "Basic Vocabulary",
+      "description": "日常基础英语词汇",
+      "descriptionEn": "Essential daily English vocabulary",
+      "totalWords": 8,
+      "learnedWords": 3,
+      "isCurrent": true,
+      "difficulty": "beginner"
+    },
+    "cet4": {
+      "id": "cet4",
+      "name": "大学英语四级",
+      "nameEn": "CET-4",
+      "description": "大学英语四级核心词汇",
+      "descriptionEn": "Core vocabulary for CET-4",
+      "totalWords": 10,
+      "learnedWords": 0,
+      "isCurrent": false,
+      "difficulty": "intermediate"
+    },
+    "cet6": {
+      "id": "cet6",
+      "name": "大学英语六级",
+      "nameEn": "CET-6",
+      "description": "大学英语六级核心词汇",
+      "descriptionEn": "Core vocabulary for CET-6",
+      "totalWords": 8,
+      "learnedWords": 0,
+      "isCurrent": false,
+      "difficulty": "advanced"
+    },
+    "travel": {
+      "id": "travel",
+      "name": "旅行英语",
+      "nameEn": "Travel English",
+      "description": "出国旅行常用词汇",
+      "descriptionEn": "Common travel vocabulary",
+      "totalWords": 8,
+      "learnedWords": 0,
+      "isCurrent": false,
+      "difficulty": "beginner"
+    },
+    "business": {
+      "id": "business",
+      "name": "商务英语",
+      "nameEn": "Business English",
+      "description": "职场商务英语词汇",
+      "descriptionEn": "Workplace business English vocabulary",
+      "totalWords": 8,
+      "learnedWords": 0,
+      "isCurrent": false,
+      "difficulty": "advanced"
+    }
+  },
+  "words": {
+    "w001": { "id": "w001", "spelling": "abandon", "phonetic": "/əˈbændən/", "chineseMeaning": "放弃；遗弃", "englishMeaning": "to give up or leave completely", "exampleSentence": "He had to abandon his plan due to the storm.", "exampleTranslation": "由于暴风雨，他不得不放弃他的计划。", "bookId": "basic", "difficulty": "beginner", "familiarity": "familiar", "isFavorite": false, "studyCount": 5, "mistakeCount": 1, "reviewStatus": "reviewed", "noteIds": [], "lastStudiedAt": 1750000000000 },
+    "w002": { "id": "w002", "spelling": "benevolent", "phonetic": "/bəˈnevələnt/", "chineseMeaning": "仁慈的；善意的", "englishMeaning": "well-meaning and kindly", "exampleSentence": "The benevolent donor gave millions to charity.", "exampleTranslation": "这位仁慈的捐赠者捐了数百万给慈善机构。", "bookId": "basic", "difficulty": "beginner", "familiarity": "familiar", "isFavorite": true, "studyCount": 3, "mistakeCount": 0, "reviewStatus": "reviewed", "noteIds": [], "lastStudiedAt": 1750000000000 },
+    "w003": { "id": "w003", "spelling": "comprehend", "phonetic": "/ˌkɑːmprɪˈhend/", "chineseMeaning": "理解；领悟", "englishMeaning": "to understand something fully", "exampleSentence": "She could not comprehend the complexity of the problem.", "exampleTranslation": "她无法理解这个问题的复杂性。", "bookId": "basic", "difficulty": "beginner", "familiarity": "familiar", "isFavorite": false, "studyCount": 4, "mistakeCount": 1, "reviewStatus": "reviewed", "noteIds": [], "lastStudiedAt": 1750000000000 },
+    "w004": { "id": "w004", "spelling": "diligent", "phonetic": "/ˈdɪlɪdʒənt/", "chineseMeaning": "勤奋的；勤勉的", "englishMeaning": "showing careful and persistent effort", "exampleSentence": "The diligent student always completes her homework on time.", "exampleTranslation": "这个勤奋的学生总是按时完成作业。", "bookId": "basic", "difficulty": "beginner", "familiarity": "learning", "isFavorite": false, "studyCount": 2, "mistakeCount": 2, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": 1750000000000 },
+    "w005": { "id": "w005", "spelling": "eloquent", "phonetic": "/ˈeləkwənt/", "chineseMeaning": "雄辩的；有口才的", "englishMeaning": "fluent and persuasive in speaking or writing", "exampleSentence": "The lawyer gave an eloquent speech in court.", "exampleTranslation": "律师在法庭上发表了一番雄辩的演讲。", "bookId": "basic", "difficulty": "beginner", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+    "w006": { "id": "w006", "spelling": "fluctuate", "phonetic": "/ˈflʌktʃueɪt/", "chineseMeaning": "波动；起伏", "englishMeaning": "to rise and fall irregularly", "exampleSentence": "Stock prices fluctuate throughout the trading day.", "exampleTranslation": "股票价格在整个交易日中波动。", "bookId": "basic", "difficulty": "beginner", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+    "w007": { "id": "w007", "spelling": "gregarious", "phonetic": "/ɡrɪˈɡeriəs/", "chineseMeaning": "爱社交的；群居的", "englishMeaning": "fond of company; sociable", "exampleSentence": "She is a gregarious person who loves parties.", "exampleTranslation": "她是个爱社交的人，喜欢参加派对。", "bookId": "basic", "difficulty": "beginner", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+    "w008": { "id": "w008", "spelling": "hypothesis", "phonetic": "/haɪˈpɑːθəsɪs/", "chineseMeaning": "假设；假说", "englishMeaning": "a proposed explanation for a phenomenon", "exampleSentence": "The scientist tested her hypothesis through experiments.", "exampleTranslation": "科学家通过实验验证了她的假设。", "bookId": "basic", "difficulty": "beginner", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+
+    "w101": { "id": "w101", "spelling": "accomplish", "phonetic": "/əˈkɑːmplɪʃ/", "chineseMeaning": "完成；实现", "englishMeaning": "to succeed in doing something", "exampleSentence": "She accomplished her goal of running a marathon.", "exampleTranslation": "她实现了跑马拉松的目标。", "bookId": "cet4", "difficulty": "intermediate", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+    "w102": { "id": "w102", "spelling": "budget", "phonetic": "/ˈbʌdʒɪt/", "chineseMeaning": "预算；经费", "englishMeaning": "an estimate of income and expenditure", "exampleSentence": "We need to plan our budget carefully for the trip.", "exampleTranslation": "我们需要仔细规划旅行预算。", "bookId": "cet4", "difficulty": "intermediate", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+    "w103": { "id": "w103", "spelling": "circumstance", "phonetic": "/ˈsɜːrkəmstæns/", "chineseMeaning": "环境；情况", "englishMeaning": "a fact or condition connected with an event", "exampleSentence": "Under no circumstances should you open that door.", "exampleTranslation": "在任何情况下你都不应该打开那扇门。", "bookId": "cet4", "difficulty": "intermediate", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+    "w104": { "id": "w104", "spelling": "demonstrate", "phonetic": "/ˈdemənstreɪt/", "chineseMeaning": "展示；证明", "englishMeaning": "to show clearly and deliberately", "exampleSentence": "The teacher demonstrated the experiment to the class.", "exampleTranslation": "老师向全班展示了这个实验。", "bookId": "cet4", "difficulty": "intermediate", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+    "w105": { "id": "w105", "spelling": "enthusiasm", "phonetic": "/ɪnˈθuːziæzəm/", "chineseMeaning": "热情；热忱", "englishMeaning": "intense enjoyment or interest", "exampleSentence": "His enthusiasm for learning English is inspiring.", "exampleTranslation": "他对学习英语的热情令人鼓舞。", "bookId": "cet4", "difficulty": "intermediate", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+    "w106": { "id": "w106", "spelling": "fundamental", "phonetic": "/ˌfʌndəˈmentl/", "chineseMeaning": "基本的；根本的", "englishMeaning": "forming a necessary base or core", "exampleSentence": "Reading is a fundamental skill for learning.", "exampleTranslation": "阅读是学习的基本技能。", "bookId": "cet4", "difficulty": "intermediate", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+    "w107": { "id": "w107", "spelling": "guarantee", "phonetic": "/ˌɡærənˈtiː/", "chineseMeaning": "保证；担保", "englishMeaning": "a formal promise or assurance", "exampleSentence": "The product comes with a one-year guarantee.", "exampleTranslation": "本产品享有一年质保。", "bookId": "cet4", "difficulty": "intermediate", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+    "w108": { "id": "w108", "spelling": "illustrate", "phonetic": "/ˈɪləstreɪt/", "chineseMeaning": "说明；阐明", "englishMeaning": "to explain or make clear by examples", "exampleSentence": "The professor used diagrams to illustrate her point.", "exampleTranslation": "教授用图表来说明她的观点。", "bookId": "cet4", "difficulty": "intermediate", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+    "w109": { "id": "w109", "spelling": "justify", "phonetic": "/ˈdʒʌstɪfaɪ/", "chineseMeaning": "证明…正当；为…辩护", "englishMeaning": "to show to be right or reasonable", "exampleSentence": "How can you justify spending so much money?", "exampleTranslation": "你如何为花这么多钱辩护？", "bookId": "cet4", "difficulty": "intermediate", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+    "w110": { "id": "w110", "spelling": "knowledge", "phonetic": "/ˈnɑːlɪdʒ/", "chineseMeaning": "知识；学问", "englishMeaning": "facts, information, and skills acquired", "exampleSentence": "Knowledge is power in today's world.", "exampleTranslation": "在当今世界，知识就是力量。", "bookId": "cet4", "difficulty": "intermediate", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+
+    "w201": { "id": "w201", "spelling": "ambiguous", "phonetic": "/æmˈbɪɡjuəs/", "chineseMeaning": "模棱两可的；含糊的", "englishMeaning": "open to more than one interpretation", "exampleSentence": "The contract contains some ambiguous clauses.", "exampleTranslation": "合同包含一些模棱两可的条款。", "bookId": "cet6", "difficulty": "advanced", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+    "w202": { "id": "w202", "spelling": "bureaucracy", "phonetic": "/bjʊˈrɑːkrəsi/", "chineseMeaning": "官僚机构；官僚主义", "englishMeaning": "a system of government with many rules", "exampleSentence": "The bureaucracy slowed down the approval process.", "exampleTranslation": "官僚机构拖慢了审批流程。", "bookId": "cet6", "difficulty": "advanced", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+    "w203": { "id": "w203", "spelling": "conscientious", "phonetic": "/ˌkɑːnʃiˈenʃəs/", "chineseMeaning": "认真负责的；尽责的", "englishMeaning": "wishing to do one's work thoroughly", "exampleSentence": "She is a conscientious employee who never misses deadlines.", "exampleTranslation": "她是一个认真负责的员工，从不逾期。", "bookId": "cet6", "difficulty": "advanced", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+    "w204": { "id": "w204", "spelling": "deteriorate", "phonetic": "/dɪˈtɪriəreɪt/", "chineseMeaning": "恶化；退化", "englishMeaning": "to become progressively worse", "exampleSentence": "His health began to deteriorate after the accident.", "exampleTranslation": "事故后他的健康状况开始恶化。", "bookId": "cet6", "difficulty": "advanced", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+    "w205": { "id": "w205", "spelling": "extravagant", "phonetic": "/ɪkˈstrævəɡənt/", "chineseMeaning": "奢侈的；挥霍的", "englishMeaning": "lacking restraint in spending money", "exampleSentence": "Their wedding was an extravagant affair.", "exampleTranslation": "他们的婚礼是一场奢侈的盛事。", "bookId": "cet6", "difficulty": "advanced", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+    "w206": { "id": "w206", "spelling": "fluctuate", "phonetic": "/ˈflʌktʃueɪt/", "chineseMeaning": "波动；变动", "englishMeaning": "to change frequently in size or value", "exampleSentence": "Exchange rates fluctuate daily based on market conditions.", "exampleTranslation": "汇率根据市场状况每天波动。", "bookId": "cet6", "difficulty": "advanced", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+    "w207": { "id": "w207", "spelling": "gesticulate", "phonetic": "/dʒeˈstɪkjuleɪt/", "chineseMeaning": "做手势；用手势表达", "englishMeaning": "to use gestures instead of or in addition to speech", "exampleSentence": "He was gesticulating wildly to get our attention.", "exampleTranslation": "他疯狂地做手势以引起我们的注意。", "bookId": "cet6", "difficulty": "advanced", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+    "w208": { "id": "w208", "spelling": "hierarchy", "phonetic": "/ˈhaɪərɑːrki/", "chineseMeaning": "等级制度；层级", "englishMeaning": "a system in which members are ranked by status", "exampleSentence": "The corporate hierarchy made decision-making slow.", "exampleTranslation": "公司的层级制度使决策变得缓慢。", "bookId": "cet6", "difficulty": "advanced", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+
+    "w301": { "id": "w301", "spelling": "passport", "phonetic": "/ˈpæspɔːrt/", "chineseMeaning": "护照", "englishMeaning": "an official document for international travel", "exampleSentence": "Make sure your passport is valid before booking the flight.", "exampleTranslation": "订机票前请确认你的护照有效。", "bookId": "travel", "difficulty": "beginner", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+    "w302": { "id": "w302", "spelling": "itinerary", "phonetic": "/aɪˈtɪnəreri/", "chineseMeaning": "行程表；旅行计划", "englishMeaning": "a planned route or journey", "exampleSentence": "Our itinerary includes visits to three European cities.", "exampleTranslation": "我们的行程包括参观三个欧洲城市。", "bookId": "travel", "difficulty": "beginner", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+    "w303": { "id": "w303", "spelling": "accommodation", "phonetic": "/əˌkɑːməˈdeɪʃn/", "chineseMeaning": "住宿；住处", "englishMeaning": "a place to live or stay", "exampleSentence": "We need to find affordable accommodation in Paris.", "exampleTranslation": "我们需要在巴黎找到实惠的住宿。", "bookId": "travel", "difficulty": "beginner", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+    "w304": { "id": "w304", "spelling": "luggage", "phonetic": "/ˈlʌɡɪdʒ/", "chineseMeaning": "行李", "englishMeaning": "suitcases or bags for travel", "exampleSentence": "Please keep an eye on your luggage at the airport.", "exampleTranslation": "在机场请看管好您的行李。", "bookId": "travel", "difficulty": "beginner", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+    "w305": { "id": "w305", "spelling": "destination", "phonetic": "/ˌdestɪˈneɪʃn/", "chineseMeaning": "目的地", "englishMeaning": "the place to which someone is going", "exampleSentence": "Our final destination is the Great Wall.", "exampleTranslation": "我们的最终目的地是长城。", "bookId": "travel", "difficulty": "beginner", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+    "w306": { "id": "w306", "spelling": "currency", "phonetic": "/ˈkɜːrənsi/", "chineseMeaning": "货币", "englishMeaning": "the system of money used in a country", "exampleSentence": "You should exchange currency before traveling abroad.", "exampleTranslation": "出国旅行前应兑换货币。", "bookId": "travel", "difficulty": "beginner", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+    "w307": { "id": "w307", "spelling": "reservation", "phonetic": "/ˌrezərˈveɪʃn/", "chineseMeaning": "预订；预约", "englishMeaning": "an arrangement to have something held for you", "exampleSentence": "I made a reservation at a restaurant near the hotel.", "exampleTranslation": "我在酒店附近的餐厅预订了座位。", "bookId": "travel", "difficulty": "beginner", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+    "w308": { "id": "w308", "spelling": "souvenir", "phonetic": "/ˌsuːvəˈnɪr/", "chineseMeaning": "纪念品", "englishMeaning": "a thing kept as a reminder of a place", "exampleSentence": "She bought a small souvenir from the museum shop.", "exampleTranslation": "她从博物馆商店买了一个小纪念品。", "bookId": "travel", "difficulty": "beginner", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+
+    "w401": { "id": "w401", "spelling": "negotiate", "phonetic": "/nɪˈɡoʊʃieɪt/", "chineseMeaning": "谈判；协商", "englishMeaning": "to discuss something to reach an agreement", "exampleSentence": "We need to negotiate the terms of the contract.", "exampleTranslation": "我们需要协商合同条款。", "bookId": "business", "difficulty": "advanced", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+    "w402": { "id": "w402", "spelling": "stakeholder", "phonetic": "/ˈsteɪkhoʊldər/", "chineseMeaning": "利益相关者", "englishMeaning": "a person with an interest in a business", "exampleSentence": "All stakeholders were invited to the annual meeting.", "exampleTranslation": "所有利益相关者都被邀请参加年度会议。", "bookId": "business", "difficulty": "advanced", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+    "w403": { "id": "w403", "spelling": "revenue", "phonetic": "/ˈrevənuː/", "chineseMeaning": "收入；税收", "englishMeaning": "income generated from business activities", "exampleSentence": "The company's revenue increased by 20% this year.", "exampleTranslation": "公司今年的收入增长了20%。", "bookId": "business", "difficulty": "advanced", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+    "w404": { "id": "w404", "spelling": "acquisition", "phonetic": "/ˌækwɪˈzɪʃn/", "chineseMeaning": "收购；获得", "englishMeaning": "the act of obtaining another company", "exampleSentence": "The acquisition of the startup cost over 100 million.", "exampleTranslation": "收购这家初创公司花费了超过一亿。", "bookId": "business", "difficulty": "advanced", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+    "w405": { "id": "w405", "spelling": "entrepreneur", "phonetic": "/ˌɑːntrəprəˈnɜːr/", "chineseMeaning": "企业家", "englishMeaning": "a person who starts a business venture", "exampleSentence": "The young entrepreneur founded three successful startups.", "exampleTranslation": "这位年轻企业家创办了三家成功的创业公司。", "bookId": "business", "difficulty": "advanced", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+    "w406": { "id": "w406", "spelling": "benchmark", "phonetic": "/ˈbentʃmɑːrk/", "chineseMeaning": "基准；标杆", "englishMeaning": "a standard against which things are compared", "exampleSentence": "We use industry benchmarks to measure our performance.", "exampleTranslation": "我们使用行业基准来衡量我们的表现。", "bookId": "business", "difficulty": "advanced", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+    "w407": { "id": "w407", "spelling": "logistics", "phonetic": "/ləˈdʒɪstɪks/", "chineseMeaning": "物流；后勤", "englishMeaning": "the detailed coordination of complex operations", "exampleSentence": "The logistics of shipping goods overseas is challenging.", "exampleTranslation": "海外货物运输的物流很有挑战性。", "bookId": "business", "difficulty": "advanced", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null },
+    "w408": { "id": "w408", "spelling": "dividend", "phonetic": "/ˈdɪvɪdend/", "chineseMeaning": "红利；股息", "englishMeaning": "a sum of money paid to shareholders", "exampleSentence": "The company announced a quarterly dividend of $0.50 per share.", "exampleTranslation": "公司宣布每股季度股息为0.50美元。", "bookId": "business", "difficulty": "advanced", "familiarity": "unknown", "isFavorite": false, "studyCount": 0, "mistakeCount": 0, "reviewStatus": "pending", "noteIds": [], "lastStudiedAt": null }
+  },
+  "studyPlan": {
+    "bookId": "basic",
+    "dailyGoal": 20,
+    "reminderEnabled": false,
+    "reminderTime": "09:00"
+  },
+  "studyRecords": [
+    { "id": "sr001", "wordId": "w001", "bookId": "basic", "result": "known", "timestamp": 1750000000000, "sessionId": "sess001" },
+    { "id": "sr002", "wordId": "w002", "bookId": "basic", "result": "known", "timestamp": 1750000000000, "sessionId": "sess001" },
+    { "id": "sr003", "wordId": "w003", "bookId": "basic", "result": "known", "timestamp": 1750000000000, "sessionId": "sess001" },
+    { "id": "sr004", "wordId": "w004", "bookId": "basic", "result": "unknown", "timestamp": 1750000000000, "sessionId": "sess001" }
+  ],
+  "reviewRecords": [],
+  "reviewSessions": [],
+  "todaySession": null,
+  "mistakeBook": ["w004"],
+  "favorites": ["w002"],
+  "notes": {},
+  "spellingExercises": {},
+  "listeningExercises": {},
+  "dailyProgress": {
+    "date": "2026-07-13",
+    "studiedCount": 4,
+    "reviewedCount": 0,
+    "goalCompleted": false
+  },
+  "statistics": {
+    "totalStudyCount": 14,
+    "totalMistakeCount": 4,
+    "totalFavoriteCount": 1,
+    "streakDays": 3,
+    "lastStudyDate": "2026-07-13"
+  },
+  "search": {
+    "query": "",
+    "results": [],
+    "openedWordId": null,
+    "history": []
+  },
+  "settings": {
+    "themeId": "light",
+    "fontSize": "medium",
+    "autoPlayPronunciation": false
+  }
+}
