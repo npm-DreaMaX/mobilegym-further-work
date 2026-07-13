@@ -345,6 +345,8 @@ class MobileGymEnv(BaseMobileEnv):
         # ebay
         "eBay": "ebay",
         "Ebay": "ebay",
+        # gmail
+        "Gmail": "gmail",
         # answer_sheet - 答题卡
         "答题卡": "answer_sheet",
         "Answer Sheet": "answer_sheet",
