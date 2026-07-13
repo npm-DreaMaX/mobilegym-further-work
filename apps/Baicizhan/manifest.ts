@@ -1,4 +1,5 @@
 import type { AppManifest } from '@/os/types/manifest';
+import { IcLauncher } from './res/icons';
 
 export const manifest: AppManifest = {
   id: 'baicizhan',
@@ -8,7 +9,7 @@ export const manifest: AppManifest = {
   version: '1.0.0',
   versionCode: 1,
   type: 'plugin',
-  icon: 'IcLauncher',
+  icon: IcLauncher,
   iconBackground: '#4F46E5',
   iconForeground: '#ffffff',
   designViewportWidth: 412,
