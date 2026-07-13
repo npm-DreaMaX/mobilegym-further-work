@@ -345,6 +345,11 @@ class MobileGymEnv(BaseMobileEnv):
         # ebay
         "eBay": "ebay",
         "Ebay": "ebay",
+        # chinamobile - 中国移动
+        "中国移动": "chinamobile",
+        "China Mobile": "chinamobile",
+        "ChinaMobile": "chinamobile",
+        "chinamobile": "chinamobile",
         # answer_sheet - 答题卡
         "答题卡": "answer_sheet",
         "Answer Sheet": "answer_sheet",
