@@ -1,0 +1,167 @@
+{
+  "user": {
+    "name": "张伟",
+    "phone": "13800138000",
+    "avatar": ""
+  },
+  "cards": [
+    {
+      "id": "card-bank-001",
+      "type": "bank",
+      "name": "工资卡",
+      "issuer": "中国工商银行",
+      "holder": "张伟",
+      "last4": "8888",
+      "number": "6222021234567898888",
+      "cardType": "debit",
+      "balance": 0,
+      "frozen": false,
+      "isDefault": true,
+      "sortOrder": 0,
+      "barcode": "6222021234567898888"
+    },
+    {
+      "id": "card-bank-002",
+      "type": "bank",
+      "name": "储蓄卡",
+      "issuer": "中国建设银行",
+      "holder": "张伟",
+      "last4": "6666",
+      "number": "6227001234567896666",
+      "cardType": "debit",
+      "balance": 0,
+      "frozen": false,
+      "isDefault": false,
+      "sortOrder": 1,
+      "barcode": "6227001234567896666"
+    },
+    {
+      "id": "card-bank-003",
+      "type": "bank",
+      "name": "信用卡",
+      "issuer": "招商银行",
+      "holder": "张伟",
+      "last4": "9999",
+      "number": "6225761234567899999",
+      "cardType": "credit",
+      "balance": 0,
+      "frozen": true,
+      "isDefault": false,
+      "sortOrder": 2,
+      "barcode": "6225761234567899999"
+    },
+    {
+      "id": "card-transit-001",
+      "type": "transit",
+      "name": "北京一卡通",
+      "issuer": "北京市政交通一卡通",
+      "city": "北京",
+      "balance": 42.5,
+      "frozen": false,
+      "isDefault": false,
+      "sortOrder": 3,
+      "barcode": "1000001234567"
+    },
+    {
+      "id": "card-membership-001",
+      "type": "membership",
+      "name": "星巴克星礼卡",
+      "issuer": "星巴克",
+      "memberNumber": "SB20240001",
+      "points": 350,
+      "balance": 0,
+      "frozen": false,
+      "isDefault": false,
+      "sortOrder": 4,
+      "barcode": "SB20240001"
+    },
+    {
+      "id": "card-membership-002",
+      "type": "membership",
+      "name": "海底捞会员",
+      "issuer": "海底捞",
+      "memberNumber": "HDL66880022",
+      "points": 1200,
+      "balance": 0,
+      "frozen": false,
+      "isDefault": false,
+      "sortOrder": 5,
+      "barcode": "HDL66880022"
+    }
+  ],
+  "coupons": [
+    {
+      "id": "coupon-001",
+      "merchant": "麦当劳",
+      "code": "MCD2024A",
+      "value": 15,
+      "expiry": 1767225600000,
+      "redeemed": false
+    },
+    {
+      "id": "coupon-002",
+      "merchant": "星巴克",
+      "code": "SBUX2024B",
+      "value": 30,
+      "expiry": 1767225600000,
+      "redeemed": true,
+      "redeemedAt": 1704067200000
+    }
+  ],
+  "tickets": [
+    {
+      "id": "ticket-001",
+      "merchant": "滴滴出行",
+      "title": "5元快车券",
+      "code": "DIDI2024EXPIRED",
+      "expiredAt": 1704067200000,
+      "archived": false
+    },
+    {
+      "id": "ticket-002",
+      "merchant": "美团单车",
+      "title": "骑行月卡",
+      "code": "MT2024EXPIRED",
+      "expiredAt": 1704160800000,
+      "archived": false
+    }
+  ],
+  "rewards": [
+    {
+      "id": "reward-001",
+      "membershipCardId": "card-membership-002",
+      "name": "招牌虾滑一份",
+      "pointsCost": 800
+    },
+    {
+      "id": "reward-002",
+      "membershipCardId": "card-membership-002",
+      "name": "100元代金券",
+      "pointsCost": 500
+    },
+    {
+      "id": "reward-003",
+      "membershipCardId": "card-membership-001",
+      "name": "中杯拿铁兑换券",
+      "pointsCost": 300
+    }
+  ],
+  "redeemedRewards": [],
+  "archivedTickets": [],
+  "transactions": [
+    {
+      "id": "txn-transit-001",
+      "cardId": "card-transit-001",
+      "type": "recharge",
+      "amount": 50,
+      "description": "北京一卡通充值",
+      "timestamp": 1704067200000
+    }
+  ],
+  "defaultCardId": "card-bank-001",
+  "searchHistory": [],
+  "settings": {
+    "themeId": "light",
+    "notifications": true
+  }
+}
