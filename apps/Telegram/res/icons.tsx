@@ -33,6 +33,8 @@ import {
   Volume2 as IcVolume2,
   VolumeX as IcVolumeX,
   Lock as IcLock,
+  MoreHorizontal as IcMoreHorizontal,
+  Database as IcDatabase,
 } from 'lucide-react';
 import type { LucideProps } from 'lucide-react';
 
@@ -69,6 +71,8 @@ export {
   IcVolume2,
   IcVolumeX,
   IcLock,
+  IcMoreHorizontal,
+  IcDatabase,
 };
 
 // ── App 图标（launcher）───────────────────────────────────────────
@@ -109,6 +113,8 @@ export const ICON_REGISTRY = {
   IcVolume2,
   IcVolumeX,
   IcLock,
+  IcMoreHorizontal,
+  IcDatabase,
   IcLauncher,
 };
 

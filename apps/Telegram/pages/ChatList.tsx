@@ -1,11 +1,11 @@
 // apps/Telegram/pages/ChatList.tsx
-// Telegram 聊天列表页面
+// Telegram 聊天列表页面 — 根页面，无返回按钮
 
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useTelegramStore } from '../state';
 import { useShallow } from 'zustand/react/shallow';
-import { useTelegramGestures } from '../hooks/useTelegramGestures';
-import { IcSearch, IcEdit, IcArchive, IcMoreVertical, IcBellOff, IcPin } from '../res/icons';
+import { IcSearch, IcEdit, IcArchive, IcBellOff, IcPin } from '../res/icons';
 import type { Chat } from '../types';
 import { fromTimestamp, now as timeNow } from '@/os/TimeService';
 
@@ -24,7 +24,7 @@ function formatLastActivity(timestamp: number): string {
   return `${date.getMonth() + 1}/${date.getDate()}`;
 }
 
-function ChatListItem({ chat, onOpen, onLongPress }: { chat: Chat; onOpen: () => void; onLongPress: () => void }) {
+function ChatListItem({ chat, onClick }: { chat: Chat; onClick: () => void }) {
   const lastMsg = chat.lastMessage || chat.messages[chat.messages.length - 1];
   const lastText = lastMsg?.content || '';
   const lastTime = lastMsg?.timestamp || chat.lastActivity;
@@ -32,15 +32,8 @@ function ChatListItem({ chat, onOpen, onLongPress }: { chat: Chat; onOpen: () =>
   return (
     <div
       className="flex items-center px-4 py-3 border-b border-gray-100 active:bg-gray-50 cursor-pointer"
-      onClick={onOpen}
-      onContextMenu={(e) => {
-        e.preventDefault();
-        onLongPress();
-      }}
+      onClick={onClick}
       data-chat-id={chat.id}
-      data-trigger="chat.open"
-      data-trigger-type="tap"
-      data-trigger-params={JSON.stringify({ chatId: chat.id })}
     >
       {/* Avatar */}
       <img
@@ -52,13 +45,13 @@ function ChatListItem({ chat, onOpen, onLongPress }: { chat: Chat; onOpen: () =>
       {/* Content */}
       <div className="flex-1 min-w-0">
         <div className="flex items-center justify-between mb-1">
-          <div className="flex items-center">
-            {chat.muted && <IcBellOff size={14} className="mr-1 text-gray-400" />}
-            <span className={`font-semibold text-[15px] ${chat.pinned ? 'font-bold' : ''}`}>
+          <div className="flex items-center min-w-0">
+            {chat.muted && <IcBellOff size={14} className="mr-1 text-gray-400 flex-shrink-0" />}
+            <span className={`font-semibold text-[15px] truncate ${chat.pinned ? 'font-bold' : ''}`}>
               {chat.title}
             </span>
             {chat.type === 'group' && (
-              <span className="ml-1 text-[11px] text-gray-500 bg-gray-100 px-1.5 rounded">group</span>
+              <span className="ml-1 text-[11px] text-gray-500 bg-gray-100 px-1.5 rounded flex-shrink-0">group</span>
             )}
           </div>
           <span className="text-[12px] text-gray-500 flex-shrink-0 ml-2">
@@ -84,19 +77,15 @@ function ChatListItem({ chat, onOpen, onLongPress }: { chat: Chat; onOpen: () =>
 }
 
 export default function ChatList() {
-  const { go, bindTap, bindBack } = useTelegramGestures();
-  const { chats, archivedChats, user, search } = useTelegramStore(
+  const navigate = useNavigate();
+  const { chats, archivedChats } = useTelegramStore(
     useShallow((s) => ({
       chats: s.chats,
       archivedChats: s.archivedChats,
-      user: s.user,
-      search: s.search,
     })),
   );
-  const [searchMode, setSearchMode] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
 
-  // Sort chats: pinned first, then by lastActivity
+  // Sort: pinned first, then by lastActivity
   const sortedChats = useMemo(() => {
     return [...chats].sort((a, b) => {
       if (a.pinned && !b.pinned) return -1;
@@ -105,76 +94,28 @@ export default function ChatList() {
     });
   }, [chats]);
 
-  // Filter by search
-  const filteredChats = useMemo(() => {
-    if (!searchQuery) return sortedChats;
-    const q = searchQuery.toLowerCase();
-    return sortedChats.filter(
-      (chat) =>
-        chat.title.toLowerCase().includes(q) ||
-        chat.messages.some((m) => m.content.toLowerCase().includes(q)),
-    );
-  }, [sortedChats, searchQuery]);
-
-  const handleOpenChat = useCallback(
-    (chatId: string) => {
-      go('chat.open', { chatId });
-    },
-    [go],
-  );
-
-  const toggleSearch = useCallback(() => {
-    setSearchMode((prev) => !prev);
-    if (searchMode) setSearchQuery('');
-  }, [searchMode]);
-
   return (
-    <div className="flex flex-col h-full bg-white" data-page="chat-list">
+    <div className="flex flex-col h-full bg-white" data-page="chat-list" data-status-bar-foreground="dark">
       {/* Header */}
-      <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100">
+      <div className="flex items-center justify-between px-4 pt-10 pb-3 border-b border-gray-100 flex-shrink-0">
         <h1 className="text-[22px] font-bold text-black">Chats</h1>
         <div className="flex items-center gap-3">
           <button
-            onClick={toggleSearch}
-            className="p-2 rounded-full hover:bg-gray-100 active:bg-gray-200"
-            data-action="home.menu.search"
-            data-action-type="tap"
+            onClick={(e) => { e.stopPropagation(); navigate('/search', { replace: false }); }}
+            className="p-2.5 rounded-full hover:bg-gray-100 active:bg-gray-200"
+            aria-label="Search"
           >
             <IcSearch size={22} className="text-[#2AABEE]" />
           </button>
           <button
-            onClick={() => go('groupCreate.open', {})}
-            className="p-2 rounded-full hover:bg-gray-100 active:bg-gray-200"
-            data-action="home.menu.group"
-            data-action-type="tap"
+            onClick={(e) => { e.stopPropagation(); navigate('/group/create', { replace: false }); }}
+            className="p-2.5 rounded-full hover:bg-gray-100 active:bg-gray-200"
+            aria-label="New group"
           >
             <IcEdit size={20} className="text-[#2AABEE]" />
           </button>
         </div>
       </div>
-
-      {/* Search bar */}
-      {searchMode && (
-        <div className="px-4 py-2 border-b border-gray-100 bg-gray-50">
-          <div className="flex items-center gap-2 bg-white rounded-full px-4 py-2 border border-gray-200">
-            <IcSearch size={18} className="text-gray-400" />
-            <input
-              type="text"
-              placeholder="Search chats and contacts..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="flex-1 outline-none text-[15px] bg-transparent"
-              data-keep-keyboard="true"
-              autoFocus
-            />
-            {searchQuery && (
-              <button onClick={() => setSearchQuery('')} className="text-gray-400">
-                <IcSearch size={16} />
-              </button>
-            )}
-          </div>
-        </div>
-      )}
 
       {/* Chat list */}
       <div className="flex-1 overflow-y-auto" data-scroll-container="main" data-scroll-direction="vertical">
@@ -182,33 +123,32 @@ export default function ChatList() {
         {archivedChats.length > 0 && (
           <div
             className="flex items-center px-4 py-3 border-b border-gray-100 bg-gray-50 active:bg-gray-100 cursor-pointer"
-            onClick={() => go('archived.open', {})}
-            data-trigger="archived.open"
-            data-trigger-type="tap"
+            onClick={() => navigate('/archived', { replace: false })}
           >
-            <div className="w-[52px] h-[52px] rounded-full bg-gray-200 mr-3 flex items-center justify-center">
+            <div className="w-[52px] h-[52px] rounded-full bg-gray-200 mr-3 flex items-center justify-center flex-shrink-0">
               <IcArchive size={22} className="text-gray-600" />
             </div>
             <div>
               <span className="font-semibold text-[15px]">Archived Chats</span>
-              <p className="text-[13px] text-gray-500">{archivedChats.length} chat{archivedChats.length > 1 ? 's' : ''}</p>
+              <p className="text-[13px] text-gray-500">
+                {archivedChats.length} chat{archivedChats.length > 1 ? 's' : ''}
+              </p>
             </div>
           </div>
         )}
 
         {/* Chat items */}
-        {filteredChats.length === 0 ? (
+        {sortedChats.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-16 text-gray-400">
             <IcSearch size={48} className="mb-4 opacity-50" />
-            <p className="text-[15px]">{searchQuery ? 'No chats found' : 'No chats yet'}</p>
+            <p className="text-[15px]">No chats yet</p>
           </div>
         ) : (
-          filteredChats.map((chat) => (
+          sortedChats.map((chat) => (
             <ChatListItem
               key={chat.id}
               chat={chat}
-              onOpen={() => handleOpenChat(chat.id)}
-              onLongPress={() => {}}
+              onClick={() => navigate(`/chat/${chat.id}`, { replace: false })}
             />
           ))
         )}

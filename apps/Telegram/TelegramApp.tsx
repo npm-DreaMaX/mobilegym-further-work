@@ -1,73 +1,104 @@
 // apps/Telegram/TelegramApp.tsx
 // Telegram App 入口组件
 
-import React, { useMemo } from 'react';
-import { MemoryRouter, Routes, Route, useLocation, useNavigate } from 'react-router-dom';
+import React, { useMemo, useCallback, useEffect } from 'react';
+import { MemoryRouter, Routes, Route, useLocation, useNavigate, Outlet } from 'react-router-dom';
 import { useAppNavigationHandler } from '@/os/hooks/useAppNavigationHandler';
-import { useTelegramStore } from './state';
-import { useShallow } from 'zustand/react/shallow';
+import { useAppNavigate } from './navigation';
 import { useTelegramGestures } from './hooks/useTelegramGestures';
+import { manifest } from './manifest';
+import { IcMessageCircle, IcUsers, IcSettings } from './res/icons';
 
 // Pages
 import ChatList from './pages/ChatList';
 import Contacts from './pages/Contacts';
 import ChatDetail from './pages/ChatDetail';
 import ChatInfo from './pages/ChatInfo';
+import ChatSearch from './pages/ChatSearch';
+import GlobalSearch from './pages/GlobalSearch';
 import GroupCreate from './pages/GroupCreate';
 import Settings from './pages/Settings';
 import ArchivedChats from './pages/ArchivedChats';
 
-// Icons
-import { IcMessageCircle, IcUsers, IcSettings } from './res/icons';
-import { manifest } from './manifest';
-
-// ── Main Tab Layout ────────────────────────────────────────────────
-function TelegramLayout() {
-  const { back } = useTelegramGestures();
-  useAppNavigationHandler(manifest.id, {
-    onBack: () => back(),
-  });
-
+// ── Bottom TabBar ──────────────────────────────────────────────────
+function TabBar() {
   const location = useLocation();
   const path = location.pathname;
+  const { go } = useAppNavigate();
 
-  // Determine which tab is active
-  const isChatList = path === '/';
-  const isContacts = path === '/contacts';
-  const isSettings = path === '/settings';
-  const isSubPage = !isChatList && !isContacts && !isSettings;
+  const tabs = [
+    { id: 'tab.chats' as const, label: 'Chats', Icon: IcMessageCircle, matchPath: '/' },
+    { id: 'tab.contacts' as const, label: 'Contacts', Icon: IcUsers, matchPath: '/contacts' },
+    { id: 'tab.settings' as const, label: 'Settings', Icon: IcSettings, matchPath: '/settings' },
+  ];
 
   return (
-    <div className="flex flex-col h-full bg-white" data-status-bar-foreground="dark">
-      {/* Main tabs (always mounted, show/hide with CSS) */}
-      <div className={`flex-1 flex flex-col ${isSubPage ? 'hidden' : ''}`}>
-        <div className={`flex-1 flex flex-col ${isChatList ? '' : 'hidden'}`} style={{ display: isChatList ? 'flex' : 'none' }}>
-          <ChatList />
-        </div>
-        <div className={`flex-1 flex flex-col ${isContacts ? '' : 'hidden'}`} style={{ display: isContacts ? 'flex' : 'none' }}>
-          <Contacts />
-        </div>
-        <div className={`flex-1 flex flex-col ${isSettings ? '' : 'hidden'}`} style={{ display: isSettings ? 'flex' : 'none' }}>
-          <Settings />
-        </div>
+    <div data-navigation-bar-foreground="dark" data-hide-on-keyboard>
+      <div className="h-px bg-gray-200" />
+      <div className="bg-white flex justify-around items-center pt-[7px] pb-3">
+        {tabs.map((tab) => {
+          const active = path === tab.matchPath;
+          const { Icon } = tab;
+          return (
+            <button
+              key={tab.id}
+              className="flex flex-col items-center justify-center flex-1 active:opacity-70"
+              onClick={() => go(tab.id, {})}
+            >
+              <Icon size={22} className={active ? 'text-[#2AABEE]' : 'text-gray-400'} />
+              <span className={`text-[11px] mt-[2px] ${active ? 'text-[#2AABEE] font-medium' : 'text-gray-400'}`}>
+                {tab.label}
+              </span>
+            </button>
+          );
+        })}
       </div>
-
-      {/* Sub-pages (exclusive) */}
-      {isSubPage && (
-        <div className="flex-1 flex flex-col">
-          <Routes>
-            <Route path="/chat/:chatId" element={<ChatDetail />} />
-            <Route path="/chat/:chatId/info" element={<ChatInfo />} />
-            <Route path="/group/create" element={<GroupCreate />} />
-            <Route path="/archived" element={<ArchivedChats />} />
-          </Routes>
-        </div>
-      )}
     </div>
   );
 }
 
-// ── App Component ──────────────────────────────────────────────────
+// ── Layout ─────────────────────────────────────────────────────────
+function TelegramLayout() {
+  const location = useLocation();
+  const path = location.pathname;
+  const { back: appBack } = useAppNavigate();
+
+  // Only root page (ChatList) allows system back to exit
+  const handleBackPress = useCallback((): boolean => {
+    if (path !== '/') {
+      // Navigate to parent based on current path
+      if (path.startsWith('/chat/') && path.endsWith('/search')) {
+        // ChatSearch → ChatDetail
+        const chatId = path.split('/')[2];
+        window.history.pushState(null, '', `/chat/${chatId}`);
+      }
+      appBack();
+      return true;
+    }
+    // At root, allow system back to exit the app
+    return false;
+  }, [path, appBack]);
+
+  useAppNavigationHandler(manifest.id, {
+    onBack: handleBackPress,
+  });
+
+  const isMainTab = path === '/' || path === '/contacts' || path === '/settings';
+
+  return (
+    <div className="relative w-full h-full bg-white flex flex-col overflow-hidden" data-status-bar-foreground="dark">
+      <div className="flex-1 relative w-full overflow-hidden">
+        {path === '/' && <ChatList />}
+        {path === '/contacts' && <Contacts />}
+        {path === '/settings' && <Settings />}
+        {!isMainTab && <Outlet />}
+      </div>
+      {isMainTab && <TabBar />}
+    </div>
+  );
+}
+
+// ── App Root ───────────────────────────────────────────────────────
 export default function TelegramApp() {
   const themeColors = useMemo(
     () => ({
@@ -83,10 +114,20 @@ export default function TelegramApp() {
   );
 
   return (
-    <div className="h-full w-full" style={themeColors}>
+    <div className="h-full w-full" style={themeColors as React.CSSProperties}>
       <MemoryRouter initialEntries={['/']}>
         <Routes>
-          <Route path="/*" element={<TelegramLayout />} />
+          <Route path="/" element={<TelegramLayout />}>
+            <Route index element={null} />
+            <Route path="contacts" element={null} />
+            <Route path="settings" element={null} />
+            <Route path="search" element={<GlobalSearch />} />
+            <Route path="chat/:chatId" element={<ChatDetail />} />
+            <Route path="chat/:chatId/search" element={<ChatSearch />} />
+            <Route path="chat/:chatId/info" element={<ChatInfo />} />
+            <Route path="group/create" element={<GroupCreate />} />
+            <Route path="archived" element={<ArchivedChats />} />
+          </Route>
         </Routes>
       </MemoryRouter>
     </div>

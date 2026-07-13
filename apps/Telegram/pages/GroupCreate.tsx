@@ -1,14 +1,14 @@
 // apps/Telegram/pages/GroupCreate.tsx
 // Telegram 创建群组页面
 
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useTelegramStore } from '../state';
 import { useShallow } from 'zustand/react/shallow';
-import { useTelegramGestures } from '../hooks/useTelegramGestures';
 import { IcChevronLeft, IcCheck, IcUsers } from '../res/icons';
 
 export default function GroupCreate() {
-  const { back, bindBack, go } = useTelegramGestures();
+  const navigate = useNavigate();
   const [step, setStep] = useState<'select' | 'name'>('select');
   const [selectedContacts, setSelectedContacts] = useState<string[]>([]);
   const [groupName, setGroupName] = useState('');
@@ -19,6 +19,16 @@ export default function GroupCreate() {
       createGroup: s.createGroup,
     })),
   );
+
+  // Back to chat list (explicit parent)
+  const handleBack = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (step === 'name') {
+      setStep('select');
+    } else {
+      navigate('/', { replace: true });
+    }
+  }, [navigate, step]);
 
   const toggleContact = useCallback((contactId: string) => {
     setSelectedContacts((prev) =>
@@ -33,27 +43,31 @@ export default function GroupCreate() {
     const newChatId = createGroup(groupName.trim(), selectedContacts);
     setSelectedContacts([]);
     setGroupName('');
-    // Navigate back to chat list, then open the new group
-    back();
-  }, [selectedContacts, groupName, createGroup, back]);
+    // Navigate to the new group chat
+    navigate(`/chat/${newChatId}`, { replace: false });
+  }, [selectedContacts, groupName, createGroup, navigate]);
 
   const canProceedToName = selectedContacts.length >= 2;
   const canCreate = groupName.trim().length > 0 && canProceedToName;
 
   return (
-    <div className="flex flex-col h-full bg-white" data-page="group-create">
+    <div className="flex flex-col h-full bg-white" data-page="group-create" data-status-bar-foreground="dark">
       {/* Header */}
-      <div className="flex items-center px-3 py-3 border-b border-gray-200">
-        <button onClick={() => back()} className="p-1.5 mr-2 rounded-full hover:bg-gray-100" {...bindBack()}>
+      <div className="flex items-center px-3 pt-10 pb-3 border-b border-gray-200 flex-shrink-0">
+        <button
+          onClick={handleBack}
+          className="p-2.5 mr-2 rounded-full hover:bg-gray-100 active:bg-gray-200"
+          aria-label="Back"
+        >
           <IcChevronLeft size={24} className="text-[#2AABEE]" />
         </button>
         <h1 className="text-[18px] font-semibold flex-1">
-          {step === 'select' ? 'Select Members' : 'Group Name'}
+          {step === 'select' ? 'New Group' : 'Group Name'}
         </h1>
         {step === 'select' && canProceedToName && (
           <button
             onClick={() => setStep('name')}
-            className="text-[#2AABEE] text-[15px] font-medium px-3 py-1"
+            className="text-[15px] text-[#2AABEE] font-medium px-3 py-1 active:opacity-70"
           >
             Next
           </button>
@@ -61,9 +75,7 @@ export default function GroupCreate() {
         {step === 'name' && canCreate && (
           <button
             onClick={handleCreate}
-            className="text-[#2AABEE] text-[15px] font-medium px-3 py-1"
-            data-action="groupCreate.action.submit"
-            data-action-type="submit"
+            className="text-[15px] text-[#2AABEE] font-medium px-3 py-1 active:opacity-70"
           >
             Create
           </button>
@@ -77,7 +89,9 @@ export default function GroupCreate() {
             <div className="px-4 py-2 bg-gray-50 border-b border-gray-100">
               <p className="text-[13px] text-gray-600">
                 {selectedContacts.length} member{selectedContacts.length !== 1 ? 's' : ''} selected
-                {selectedContacts.length < 2 && <span className="text-gray-400"> (min 2)</span>}
+                {selectedContacts.length < 2 && (
+                  <span className="text-gray-400"> (minimum 2)</span>
+                )}
               </p>
             </div>
 
@@ -95,18 +109,20 @@ export default function GroupCreate() {
                   <img
                     src={contact.avatar}
                     alt={contact.name}
-                    className="w-[44px] h-[44px] rounded-full mr-3 object-cover bg-gray-200"
+                    className="w-[44px] h-[44px] rounded-full mr-3 object-cover bg-gray-200 flex-shrink-0"
                   />
-                  <div className="flex-1 text-left">
+                  <div className="flex-1 text-left min-w-0">
                     <span className="text-[15px] font-medium">{contact.name}</span>
-                    {contact.online && <span className="block text-[12px] text-[#2AABEE]">online</span>}
+                    {contact.online && (
+                      <span className="block text-[12px] text-[#2AABEE]">online</span>
+                    )}
                   </div>
                   <div
-                    className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${
+                    className={`w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${
                       isSelected ? 'bg-[#2AABEE] border-[#2AABEE]' : 'border-gray-300'
                     }`}
                   >
-                    {isSelected && <IcCheck size={16} className="text-white" />}
+                    {isSelected && <IcCheck size={14} className="text-white" />}
                   </div>
                 </button>
               );
@@ -130,19 +146,26 @@ export default function GroupCreate() {
                 className="w-full border-b border-gray-300 focus:border-[#2AABEE] outline-none py-2 text-[17px]"
                 autoFocus
                 data-keep-keyboard="true"
-                data-action="groupCreate.action.submit"
-                data-action-type="input"
               />
             </div>
 
             <div className="mb-4">
-              <p className="text-[13px] text-gray-500 mb-2">Members ({selectedContacts.length})</p>
+              <p className="text-[13px] text-gray-500 mb-2">
+                Members ({selectedContacts.length})
+              </p>
               <div className="flex flex-wrap gap-2">
                 {selectedContacts.map((contactId) => {
                   const contact = contacts.find((c) => c.id === contactId);
                   return contact ? (
-                    <div key={contactId} className="flex items-center bg-gray-100 rounded-full px-3 py-1">
-                      <img src={contact.avatar} alt="" className="w-6 h-6 rounded-full mr-2 object-cover" />
+                    <div
+                      key={contactId}
+                      className="flex items-center bg-gray-100 rounded-full px-3 py-1"
+                    >
+                      <img
+                        src={contact.avatar}
+                        alt=""
+                        className="w-6 h-6 rounded-full mr-2 object-cover"
+                      />
                       <span className="text-[13px]">{contact.name}</span>
                     </div>
                   ) : null;

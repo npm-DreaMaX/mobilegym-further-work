@@ -4,8 +4,6 @@
 import { useCallback } from 'react';
 import { useNavigate, useLocation, useParams } from 'react-router-dom';
 import { NAVIGATION_DECLARATION } from './navigation.declaration';
-import { memoryHistoryPopTo } from '@/os/utils/memoryHistoryPopTo';
-import { useHistoryTracker } from '@/os/utils/memoryHistoryTracker';
 import type { TransitionDeclaration, FromConstraint } from './navigation.types';
 
 type Primitive = string | number | boolean | null;
@@ -130,10 +128,7 @@ export function useAppNavigate() {
       // Merge params: URL params + runtime params
       const mergedParams = { ...urlParams, ...params };
 
-      // PopTo support
-      if (options?.popTo) {
-        memoryHistoryPopTo(options.popTo, { popToInclusive: options.popToInclusive });
-      }
+      // PopTo support — removed for explicit navigation model
 
       // Resolve target path
       const targetPath = replaceParams(transition.to, mergedParams);

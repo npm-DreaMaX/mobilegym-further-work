@@ -14,7 +14,7 @@ export const NAVIGATION_DECLARATION = {
   capabilities: { historyBack: true },
 
   routes: [
-    // ── 首页：聊天列表 ────────────────────────────────
+    // ── 聊天列表（首页/根页面）───────────────────────────────
     {
       path: '/',
       component: 'ChatList',
@@ -29,19 +29,31 @@ export const NAVIGATION_DECLARATION = {
           search: {},
           description: '默认视图 — 聊天列表',
           actions: [
-            { id: 'home.menu.search', label: '搜索', behavior: 'other', ui: { placement: 'topbar', icon: 'search' } },
-            { id: 'home.menu.group', label: '创建群组', behavior: 'other', ui: { placement: 'topbar', icon: 'users' } },
+            { id: 'home.action.search', label: '全局搜索', behavior: 'other' },
+            { id: 'home.action.group', label: '创建群组', behavior: 'other' },
           ],
         },
+      ],
+    },
+
+    // ── 全局搜索 ────────────────────────────────
+    {
+      path: '/search',
+      component: 'GlobalSearch',
+      params: {},
+      entryPoint: 'none',
+      scrollContainers: [MAIN_SCROLL],
+      description: '全局搜索 — 搜索聊天、联系人和消息',
+      queryParams: {},
+      uiStates: [
         {
-          id: 'home.search',
-          search: { search: 'open' },
-          description: '全局搜索栏 — 搜索联系人和聊天',
-        },
-        {
-          id: 'home.menu.more',
-          search: { menu: 'more' },
-          description: '更多菜单',
+          id: 'search.base',
+          search: {},
+          description: '搜索输入和结果视图',
+          actions: [
+            { id: 'search.action.submit', label: '提交搜索', behavior: 'submit' },
+            { id: 'search.action.clear', label: '清除搜索', behavior: 'other' },
+          ],
         },
       ],
     },
@@ -60,7 +72,9 @@ export const NAVIGATION_DECLARATION = {
           id: 'contacts.base',
           search: {},
           description: '联系人列表默认视图',
-          actions: [],
+          actions: [
+            { id: 'contacts.action.search', label: '搜索联系人', behavior: 'other' },
+          ],
         },
       ],
     },
@@ -80,15 +94,14 @@ export const NAVIGATION_DECLARATION = {
           search: {},
           description: '聊天详情默认视图',
           actions: [
-            { id: 'chat.message.send', label: '发送消息', behavior: 'submit', ui: { placement: 'content', icon: 'send' } },
-            { id: 'chat.action.reply', label: '回复消息', behavior: 'other', scope: 'item', paramsSchema: { messageId: 'string' }, ui: { placement: 'content', icon: 'reply' } },
-            { id: 'chat.action.edit', label: '编辑消息', behavior: 'other', scope: 'item', paramsSchema: { messageId: 'string', newText: 'string' }, ui: { placement: 'content', icon: 'edit' } },
-            { id: 'chat.action.delete', label: '删除消息', behavior: 'other', scope: 'item', paramsSchema: { messageId: 'string' }, ui: { placement: 'content', icon: 'trash' } },
-            { id: 'chat.action.forward', label: '转发消息', behavior: 'other', scope: 'item', paramsSchema: { messageId: 'string' }, ui: { placement: 'content', icon: 'share' } },
-            { id: 'chat.action.react', label: '表情回应', behavior: 'other', scope: 'item', paramsSchema: { messageId: 'string', emoji: 'string' }, ui: { placement: 'content', icon: 'smile' } },
-            { id: 'chat.action.pin', label: '置顶消息', behavior: 'other', scope: 'item', paramsSchema: { messageId: 'string' }, ui: { placement: 'content', icon: 'pin' } },
-            { id: 'chat.message.longpress', label: '长按消息菜单', behavior: 'other', scope: 'item', paramsSchema: { messageId: 'string' }, ui: { placement: 'content', icon: 'menu' } },
-            { id: 'chat.search.open', label: '聊天内搜索', behavior: 'other', ui: { placement: 'topbar', icon: 'search' } },
+            { id: 'chat.message.send', label: '发送消息', behavior: 'submit' },
+            { id: 'chat.action.reply', label: '回复消息', behavior: 'other', scope: 'item', paramsSchema: { messageId: 'string' } },
+            { id: 'chat.action.edit', label: '编辑消息', behavior: 'other', scope: 'item', paramsSchema: { messageId: 'string' } },
+            { id: 'chat.action.delete', label: '删除消息', behavior: 'other', scope: 'item', paramsSchema: { messageId: 'string' } },
+            { id: 'chat.action.forward', label: '转发消息', behavior: 'other', scope: 'item', paramsSchema: { messageId: 'string' } },
+            { id: 'chat.action.react', label: '表情回应', behavior: 'other', scope: 'item', paramsSchema: { messageId: 'string', emoji: 'string' } },
+            { id: 'chat.action.pin', label: '置顶消息', behavior: 'other', scope: 'item', paramsSchema: { messageId: 'string' } },
+            { id: 'chat.search.open', label: '聊天内搜索', behavior: 'other' },
           ],
         },
         {
@@ -101,20 +114,32 @@ export const NAVIGATION_DECLARATION = {
           search: { action: 'edit' },
           description: '编辑消息输入状态',
         },
+      ],
+    },
+
+    // ── 聊天内搜索 ────────────────────────────────
+    {
+      path: '/chat/:chatId/search',
+      component: 'ChatSearch',
+      params: { chatId: 'string' },
+      entryPoint: 'none',
+      scrollContainers: [MAIN_SCROLL],
+      description: '聊天内搜索 — 在当前聊天中搜索消息',
+      queryParams: {},
+      uiStates: [
         {
-          id: 'chat.forward',
-          search: { action: 'forward' },
-          description: '转发消息选择目标',
-        },
-        {
-          id: 'chat.search',
-          search: { view: 'search' },
-          description: '聊天内搜索',
+          id: 'chatSearch.base',
+          search: {},
+          description: '聊天内搜索视图',
+          actions: [
+            { id: 'chatSearch.action.submit', label: '提交搜索', behavior: 'submit' },
+            { id: 'chatSearch.action.clear', label: '清除搜索', behavior: 'other' },
+          ],
         },
       ],
     },
 
-    // ── 聊天设置/信息 ────────────────────────────────
+    // ── 聊天信息 ────────────────────────────────
     {
       path: '/chat/:chatId/info',
       component: 'ChatInfo',
@@ -129,11 +154,11 @@ export const NAVIGATION_DECLARATION = {
           search: {},
           description: '聊天信息默认视图',
           actions: [
-            { id: 'chatInfo.action.mute', label: '静音/取消静音', behavior: 'toggle', ui: { placement: 'content', icon: 'bell-off' } },
-            { id: 'chatInfo.action.pin', label: '置顶/取消置顶', behavior: 'toggle', ui: { placement: 'content', icon: 'pin' } },
-            { id: 'chatInfo.action.archive', label: '归档/取消归档', behavior: 'toggle', ui: { placement: 'content', icon: 'archive' } },
-            { id: 'chatInfo.action.markUnread', label: '标记为未读', behavior: 'other', ui: { placement: 'content', icon: 'message-square' } },
-            { id: 'chatInfo.action.groupName', label: '修改群组名称', behavior: 'other', paramsSchema: { newName: 'string' }, ui: { placement: 'content', icon: 'edit' } },
+            { id: 'chatInfo.action.mute', label: '静音/取消静音', behavior: 'toggle' },
+            { id: 'chatInfo.action.pin', label: '置顶/取消置顶', behavior: 'toggle' },
+            { id: 'chatInfo.action.archive', label: '归档/取消归档', behavior: 'toggle' },
+            { id: 'chatInfo.action.markUnread', label: '标记为未读', behavior: 'other' },
+            { id: 'chatInfo.action.groupName', label: '修改群组名称', behavior: 'other', paramsSchema: { newName: 'string' } },
           ],
         },
       ],
@@ -154,7 +179,7 @@ export const NAVIGATION_DECLARATION = {
           search: {},
           description: '创建群组 — 成员选择',
           actions: [
-            { id: 'groupCreate.action.submit', label: '创建群组', behavior: 'submit', ui: { placement: 'topbar', icon: 'check' } },
+            { id: 'groupCreate.action.submit', label: '创建群组', behavior: 'submit' },
           ],
         },
         {
@@ -179,7 +204,12 @@ export const NAVIGATION_DECLARATION = {
           id: 'settings.base',
           search: {},
           description: '设置默认视图',
-          actions: [],
+          actions: [
+            { id: 'settings.action.notifications', label: '通知设置', behavior: 'toggle' },
+            { id: 'settings.action.privacy', label: '隐私设置', behavior: 'other' },
+            { id: 'settings.action.data', label: '数据设置', behavior: 'other' },
+            { id: 'settings.action.appearance', label: '外观设置', behavior: 'toggle' },
+          ],
         },
       ],
     },
@@ -205,45 +235,58 @@ export const NAVIGATION_DECLARATION = {
   ],
 
   transitions: [
-    // ── Tab 切换 ────────────────────────────────
+    // ── Tab 切换（底部标签栏）───────────────────────────
     {
       id: 'tab.chats',
-      from: ['/contacts', '/settings'],
+      from: '*',
       to: '/',
       search: {},
       searchParams: {},
       mode: 'replace',
       params: {},
       label: '切换到聊天列表',
-      ui: { placement: 'topbar', icon: 'message-circle', gesture: 'tap' },
+      ui: { placement: 'tabbar', icon: 'message-circle', gesture: 'tap' },
     },
     {
       id: 'tab.contacts',
-      from: ['/', '/chat/:chatId'],
+      from: '*',
       to: '/contacts',
       search: {},
       searchParams: {},
       mode: 'replace',
       params: {},
       label: '切换到联系人',
-      ui: { placement: 'topbar', icon: 'users', gesture: 'tap' },
+      ui: { placement: 'tabbar', icon: 'users', gesture: 'tap' },
     },
     {
       id: 'tab.settings',
-      from: ['/contacts', '/'],
+      from: '*',
       to: '/settings',
       search: {},
       searchParams: {},
       mode: 'replace',
       params: {},
       label: '切换到设置',
-      ui: { placement: 'topbar', icon: 'settings', gesture: 'tap' },
+      ui: { placement: 'tabbar', icon: 'settings', gesture: 'tap' },
     },
 
-    // ── 从首页到聊天详情 ────────────────────────────────
+    // ── 全局搜索 ────────────────────────────────
+    {
+      id: 'search.open',
+      from: '*',
+      to: '/search',
+      search: {},
+      searchParams: {},
+      mode: 'push',
+      params: {},
+      label: '打开全局搜索',
+      ui: { placement: 'topbar', icon: 'search', gesture: 'tap' },
+    },
+
+    // ── 聊天详情 ────────────────────────────────
     {
       id: 'chat.open',
-      from: ['/', '/archived', '/chat/:chatId'],
+      from: '*',
       to: '/chat/:chatId',
       search: {},
       searchParams: {},
@@ -258,69 +301,36 @@ export const NAVIGATION_DECLARATION = {
       },
     },
 
-    // ── 搜索 ────────────────────────────────
-    {
-      id: 'home.search.open',
-      from: '/',
-      to: '/',
-      search: { search: 'open' },
-      searchParams: {},
-      mode: 'replace',
-      params: {},
-      label: '打开全局搜索',
-      ui: { placement: 'topbar', icon: 'search', gesture: 'tap' },
-    },
-    {
-      id: 'home.search.close',
-      from: { path: '/', search: { search: 'open' } },
-      to: '/',
-      search: {},
-      searchParams: {},
-      mode: 'replace',
-      params: {},
-      label: '关闭搜索',
-      ui: { placement: 'topbar', icon: 'x', gesture: 'tap' },
-    },
+    // ── 聊天内搜索 ────────────────────────────────
     {
       id: 'chat.search.open',
-      from: '/chat/:chatId',
-      to: '/chat/:chatId',
-      search: { view: 'search' },
+      from: '*',
+      to: '/chat/:chatId/search',
+      search: {},
       searchParams: {},
-      mode: 'replace',
+      mode: 'push',
       params: { chatId: 'string' },
       label: '打开聊天内搜索',
       ui: { placement: 'topbar', icon: 'search', gesture: 'tap' },
     },
-    {
-      id: 'chat.search.close',
-      from: { path: '/chat/:chatId', search: { view: 'search' } },
-      to: '/chat/:chatId',
-      search: {},
-      searchParams: {},
-      mode: 'replace',
-      params: { chatId: 'string' },
-      label: '关闭聊天内搜索',
-      ui: { placement: 'topbar', icon: 'x', gesture: 'tap' },
-    },
 
-    // ── 聊天信息/设置 ────────────────────────────────
+    // ── 聊天信息 ────────────────────────────────
     {
       id: 'chatInfo.open',
-      from: '/chat/:chatId',
+      from: '*',
       to: '/chat/:chatId/info',
       search: {},
       searchParams: {},
       mode: 'push',
       params: { chatId: 'string' },
       label: '打开聊天信息',
-      ui: { placement: 'content', icon: 'info', gesture: 'tap' },
+      ui: { placement: 'topbar', icon: 'info', gesture: 'tap' },
     },
 
     // ── 创建群组 ────────────────────────────────
     {
       id: 'groupCreate.open',
-      from: '/',
+      from: '*',
       to: '/group/create',
       search: {},
       searchParams: {},
@@ -329,22 +339,11 @@ export const NAVIGATION_DECLARATION = {
       label: '创建群组',
       ui: { placement: 'topbar', icon: 'users', gesture: 'tap' },
     },
-    {
-      id: 'groupCreate.name.submit',
-      from: { path: '/group/create', search: { step: 'name' } },
-      to: '/',
-      search: {},
-      searchParams: {},
-      mode: 'push',
-      params: { chatId: 'string' },
-      label: '提交群组名称并打开新群组',
-      ui: { placement: 'topbar', icon: 'check', gesture: 'tap' },
-    },
 
     // ── 归档 ────────────────────────────────
     {
       id: 'archived.open',
-      from: '/',
+      from: '*',
       to: '/archived',
       search: {},
       searchParams: {},
@@ -352,32 +351,6 @@ export const NAVIGATION_DECLARATION = {
       params: {},
       label: '打开已归档聊天',
       ui: { placement: 'content', icon: 'archive', gesture: 'tap' },
-    },
-
-    // ── Forward 选择目标 ────────────────────────────────
-    {
-      id: 'forward.target.open',
-      from: { path: '/chat/:chatId', search: { action: 'forward' } },
-      to: '/contacts',
-      search: { action: 'forward' },
-      searchParams: { chatId: 'string' },
-      mode: 'push',
-      params: { chatId: 'string' },
-      label: '选择转发目标',
-      ui: { placement: 'content', icon: 'share', gesture: 'tap' },
-    },
-
-    // ── Reply 到聊天 ────────────────────────────────
-    {
-      id: 'chat.reply.open',
-      from: '/chat/:chatId',
-      to: '/chat/:chatId',
-      search: { action: 'reply' },
-      searchParams: { messageId: 'string' },
-      mode: 'replace',
-      params: { chatId: 'string' },
-      label: '打开回复输入框',
-      ui: { placement: 'content', icon: 'reply', gesture: 'tap' },
     },
   ],
 } as const satisfies NavigationDeclaration;
