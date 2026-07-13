@@ -1,0 +1,20 @@
+// Local NavigationDeclaration type copy — re-exported from the canonical definition.
+export type {
+  NavigationDeclaration,
+  RouteDeclaration,
+  TransitionDeclaration,
+  CaseDeclaration,
+  Condition,
+  ValueRef,
+  FromConstraint,
+  Primitive,
+  GestureType,
+  EntryPointDeclaration,
+  ScrollContainerDeclaration,
+  ActionDeclaration,
+  LocalStateDeclaration,
+  ActionEffect,
+  EdgeAvailability,
+  DataSourceDeclaration,
+  StateCondition,
+} from '../Wechat/navigation.types';

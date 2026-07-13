@@ -1,0 +1,95 @@
+{
+  "user": {
+    "name": "张伟",
+    "phone": "138****8888",
+    "points": 1260
+  },
+  "balance": 38.50,
+  "usage": {
+    "dataTotalGb": 20,
+    "dataUsedGb": 1.6,
+    "voiceTotalMin": 100,
+    "voiceUsedMin": 32,
+    "smsTotal": 100,
+    "smsUsed": 5
+  },
+  "activePlanId": "plan-188",
+  "bills": [
+    {
+      "id": "bill-2026-07",
+      "month": "2026-07",
+      "total": 90.50,
+      "status": "current",
+      "arrears": false,
+      "items": [
+        { "category": "套餐费", "amount": 38.00 },
+        { "category": "语音通话费", "amount": 12.50 },
+        { "category": "流量费", "amount": 25.00 },
+        { "category": "增值业务费", "amount": 11.00 },
+        { "category": "代收费用", "amount": 4.00 }
+      ]
+    },
+    {
+      "id": "bill-2026-06",
+      "month": "2026-06",
+      "total": 12.80,
+      "status": "unpaid",
+      "arrears": true,
+      "items": [
+        { "category": "套餐费", "amount": 10.00 },
+        { "category": "增值业务费", "amount": 2.80 }
+      ]
+    },
+    {
+      "id": "bill-2026-05",
+      "month": "2026-05",
+      "total": 88.00,
+      "status": "paid",
+      "arrears": false,
+      "items": [
+        { "category": "套餐费", "amount": 60.00 },
+        { "category": "流量费", "amount": 18.00 },
+        { "category": "增值业务费", "amount": 10.00 }
+      ]
+    }
+  ],
+  "purchasedPacks": [],
+  "subscribedServices": [
+    { "id": "vas-callerid", "name": "来电显示", "price": 0, "enabled": true, "cancellable": false },
+    { "id": "vas-cloud", "name": "和彩云盘", "price": 5, "enabled": true, "cancellable": true },
+    { "id": "vas-crbt", "name": "视频彩铃", "price": 6, "enabled": true, "cancellable": true },
+    { "id": "vas-weather", "name": "气象短信", "price": 2, "enabled": false, "cancellable": true },
+    { "id": "vas-139mail", "name": "139邮箱", "price": 0, "enabled": true, "cancellable": true }
+  ],
+  "roaming": { "enabled": false },
+  "autopay": { "enabled": false, "paymentMethodId": null },
+  "familyNumbers": [
+    { "id": "fam-001", "phone": "13800100001", "nickname": "爸爸" },
+    { "id": "fam-002", "phone": "13800100002", "nickname": "妈妈" }
+  ],
+  "profile": {
+    "email": "zhangwei@139.com",
+    "realName": "张伟",
+    "idNo": "3201**********0011",
+    "address": "江苏省南京市玄武区紫金大厦"
+  },
+  "paymentMethods": [
+    { "id": "pm-balance", "type": "balance", "label": "话费余额" },
+    { "id": "pm-cmb", "type": "bankcard", "label": "招商银行储蓄卡", "tail": "1234" },
+    { "id": "pm-alipay", "type": "alipay", "label": "支付宝", "tail": "5678" }
+  ],
+  "transactions": [
+    { "id": "txn-001", "type": "recharge", "amount": 100, "desc": "话费充值100元", "time": 1752403200000 },
+    { "id": "txn-002", "type": "payment", "amount": 38.00, "desc": "缴纳2026-05账单", "time": 1752230400000 }
+  ],
+  "search": {
+    "current": { "keyword": null, "resultIds": [], "searched": false },
+    "history": []
+  },
+  "settings": {
+    "themeId": "light",
+    "dataAlert": true,
+    "marketingPush": true,
+    "roamingEnabled": false
+  }
+}
